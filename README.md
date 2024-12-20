@@ -1,0 +1,2 @@
+# BloodyIPA
+Collector for BloodHoundIPA
