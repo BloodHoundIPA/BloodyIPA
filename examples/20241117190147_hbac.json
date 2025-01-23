@@ -1,0 +1,724 @@
+{
+  "data": [
+    {
+      "Properties": {
+        "objectclass": [
+          "ipahbacservice",
+          "ipaobject"
+        ],
+        "ipauniqueid": "6711f320-872d-11ef-8451-000c290709d1",
+        "name": "crond",
+        "object_id": "crond",
+        "description": "crond",
+        "highvalue": false
+      },
+      "Edges": []
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipahbacservice",
+          "ipaobject"
+        ],
+        "ipauniqueid": "7b4bca7e-872c-11ef-a5ee-000c290709d1",
+        "name": "ftp",
+        "object_id": "ftp",
+        "description": "ftp",
+        "highvalue": false
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAHBACService",
+            "uid": "ftp"
+          },
+          "target": {
+            "type": "IPAHBACServiceGroup",
+            "uid": "ftp"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipahbacservice",
+          "ipaobject"
+        ],
+        "ipauniqueid": "7b7436da-872c-11ef-b0de-000c290709d1",
+        "name": "gdm",
+        "object_id": "gdm",
+        "description": "gdm",
+        "highvalue": false
+      },
+      "Edges": []
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipahbacservice",
+          "ipaobject"
+        ],
+        "ipauniqueid": "7b746c40-872c-11ef-88ce-000c290709d1",
+        "name": "gdm-password",
+        "object_id": "gdm-password",
+        "description": "gdm-password",
+        "highvalue": false
+      },
+      "Edges": []
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipahbacservice",
+          "ipaobject"
+        ],
+        "ipauniqueid": "6713ef7c-872d-11ef-8451-000c290709d1",
+        "name": "gssftp",
+        "object_id": "gssftp",
+        "description": "gssftp",
+        "highvalue": false
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAHBACService",
+            "uid": "gssftp"
+          },
+          "target": {
+            "type": "IPAHBACServiceGroup",
+            "uid": "ftp"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipahbacservice",
+          "ipaobject"
+        ],
+        "ipauniqueid": "7b74b006-872c-11ef-9f41-000c290709d1",
+        "name": "kdm",
+        "object_id": "kdm",
+        "description": "kdm",
+        "highvalue": false
+      },
+      "Edges": []
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipahbacservice",
+          "ipaobject"
+        ],
+        "ipauniqueid": "7b4c5b9c-872c-11ef-95c0-000c290709d1",
+        "name": "login",
+        "object_id": "login",
+        "description": "login",
+        "highvalue": false
+      },
+      "Edges": []
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipahbacservice",
+          "ipaobject"
+        ],
+        "ipauniqueid": "6712f748-872d-11ef-8451-000c290709d1",
+        "name": "proftpd",
+        "object_id": "proftpd",
+        "description": "proftpd",
+        "highvalue": false
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAHBACService",
+            "uid": "proftpd"
+          },
+          "target": {
+            "type": "IPAHBACServiceGroup",
+            "uid": "ftp"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipahbacservice",
+          "ipaobject"
+        ],
+        "ipauniqueid": "67137420-872d-11ef-8451-000c290709d1",
+        "name": "pure-ftpd",
+        "object_id": "pure-ftpd",
+        "description": "pure-ftpd",
+        "highvalue": false
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAHBACService",
+            "uid": "pure-ftpd"
+          },
+          "target": {
+            "type": "IPAHBACServiceGroup",
+            "uid": "ftp"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipahbacservice",
+          "ipaobject"
+        ],
+        "ipauniqueid": "7b4ba1de-872c-11ef-a30d-000c290709d1",
+        "name": "sshd",
+        "object_id": "sshd",
+        "description": "sshd",
+        "highvalue": false
+      },
+      "Edges": []
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipahbacservice",
+          "ipaobject"
+        ],
+        "ipauniqueid": "7b4c2582-872c-11ef-a94f-000c290709d1",
+        "name": "su",
+        "object_id": "su",
+        "description": "su",
+        "highvalue": false
+      },
+      "Edges": []
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipahbacservice",
+          "ipaobject"
+        ],
+        "ipauniqueid": "7b4ccfd2-872c-11ef-9f7c-000c290709d1",
+        "name": "su-l",
+        "object_id": "su-l",
+        "description": "su with login shell",
+        "highvalue": false
+      },
+      "Edges": []
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipahbacservice",
+          "ipaobject"
+        ],
+        "ipauniqueid": "7b7349d2-872c-11ef-bee4-000c290709d1",
+        "name": "sudo",
+        "object_id": "sudo",
+        "description": "sudo",
+        "highvalue": false
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAHBACService",
+            "uid": "sudo"
+          },
+          "target": {
+            "type": "IPAHBACServiceGroup",
+            "uid": "Sudo"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipahbacservice",
+          "ipaobject"
+        ],
+        "ipauniqueid": "7b7397fc-872c-11ef-bed1-000c290709d1",
+        "name": "sudo-i",
+        "object_id": "sudo-i",
+        "description": "sudo-i",
+        "highvalue": false
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAHBACService",
+            "uid": "sudo-i"
+          },
+          "target": {
+            "type": "IPAHBACServiceGroup",
+            "uid": "Sudo"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipahbacservice",
+          "ipaobject"
+        ],
+        "ipauniqueid": "7b73df6e-872c-11ef-84d3-000c290709d1",
+        "name": "systemd-user",
+        "object_id": "systemd-user",
+        "description": "pam_systemd and systemd user@.service",
+        "highvalue": false
+      },
+      "Edges": []
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipahbacservice",
+          "ipaobject"
+        ],
+        "ipauniqueid": "67127b38-872d-11ef-8451-000c290709d1",
+        "name": "vsftpd",
+        "object_id": "vsftpd",
+        "description": "vsftpd",
+        "highvalue": false
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAHBACService",
+            "uid": "vsftpd"
+          },
+          "target": {
+            "type": "IPAHBACServiceGroup",
+            "uid": "ftp"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipaobject",
+          "ipahbacservicegroup",
+          "nestedGroup",
+          "groupOfNames",
+          "top"
+        ],
+        "ipauniqueid": "67148bda-872d-11ef-8451-000c290709d1",
+        "name": "ftp",
+        "object_id": "ftp",
+        "description": "Default group of ftp related services",
+        "highvalue": false
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAHBACService",
+            "uid": "ftp"
+          },
+          "target": {
+            "type": "IPAHBACServiceGroup",
+            "uid": "ftp"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHBACService",
+            "uid": "proftpd"
+          },
+          "target": {
+            "type": "IPAHBACServiceGroup",
+            "uid": "ftp"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHBACService",
+            "uid": "pure-ftpd"
+          },
+          "target": {
+            "type": "IPAHBACServiceGroup",
+            "uid": "ftp"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHBACService",
+            "uid": "vsftpd"
+          },
+          "target": {
+            "type": "IPAHBACServiceGroup",
+            "uid": "ftp"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHBACService",
+            "uid": "gssftp"
+          },
+          "target": {
+            "type": "IPAHBACServiceGroup",
+            "uid": "ftp"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipaobject",
+          "ipahbacservicegroup",
+          "nestedGroup",
+          "groupOfNames",
+          "top"
+        ],
+        "ipauniqueid": "7b74f084-872c-11ef-9f27-000c290709d1",
+        "name": "Sudo",
+        "object_id": "Sudo",
+        "description": "Default group of Sudo related services",
+        "highvalue": false
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAHBACService",
+            "uid": "sudo"
+          },
+          "target": {
+            "type": "IPAHBACServiceGroup",
+            "uid": "Sudo"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHBACService",
+            "uid": "sudo-i"
+          },
+          "target": {
+            "type": "IPAHBACServiceGroup",
+            "uid": "Sudo"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipaassociation",
+          "ipahbacrule"
+        ],
+        "accessruletype": [
+          "allow"
+        ],
+        "ipauniqueid": [
+          "7bbf8842-872c-11ef-bf04-000c290709d1"
+        ],
+        "hostcategory": [
+          "all"
+        ],
+        "usercategory": [
+          "all"
+        ],
+        "description": [
+          "Allow all users to access any host from any host"
+        ],
+        "ipaenabledflag": [
+          true
+        ],
+        "cn": [
+          "allow_all"
+        ],
+        "servicecategory": [
+          "all"
+        ],
+        "dn": "ipaUniqueID=7bbf8842-872c-11ef-bf04-000c290709d1,cn=hbac,dc=domain,dc=local",
+        "name": "allow_all",
+        "object_id": "allow_all"
+      },
+      "Edges": []
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipaassociation",
+          "ipahbacrule"
+        ],
+        "accessruletype": [
+          "allow"
+        ],
+        "ipauniqueid": [
+          "7bc0755e-872c-11ef-bcb6-000c290709d1"
+        ],
+        "hostcategory": [
+          "all"
+        ],
+        "usercategory": [
+          "all"
+        ],
+        "description": [
+          "Allow pam_systemd to run user@.service to create a system user session"
+        ],
+        "ipaenabledflag": [
+          true
+        ],
+        "cn": [
+          "allow_systemd-user"
+        ],
+        "dn": "ipaUniqueID=7bc0755e-872c-11ef-bcb6-000c290709d1,cn=hbac,dc=domain,dc=local",
+        "name": "allow_systemd-user",
+        "object_id": "allow_systemd-user"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAHBACService",
+            "uid": "systemd-user"
+          },
+          "target": {
+            "type": "IPAHBACRule",
+            "uid": "allow_systemd-user"
+          },
+          "edge": {
+            "type": "IPAHBACRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "accessruletype": [
+          "allow"
+        ],
+        "objectclass": [
+          "ipaassociation",
+          "ipahbacrule"
+        ],
+        "ipauniqueid": [
+          "6ba02f68-ba1a-11ef-a488-000c290709d1"
+        ],
+        "ipaenabledflag": [
+          true
+        ],
+        "cn": [
+          "Test HBAC"
+        ],
+        "dn": "ipaUniqueID=6ba02f68-ba1a-11ef-a488-000c290709d1,cn=hbac,dc=domain,dc=local",
+        "name": "Test HBAC",
+        "object_id": "Test HBAC"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAUser",
+            "uid": "admin"
+          },
+          "target": {
+            "type": "IPAHBACRule",
+            "uid": "Test HBAC"
+          },
+          "edge": {
+            "type": "IPAHBACRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUser",
+            "uid": "user-1"
+          },
+          "target": {
+            "type": "IPAHBACRule",
+            "uid": "Test HBAC"
+          },
+          "edge": {
+            "type": "IPAHBACRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUserGroup",
+            "uid": "editors"
+          },
+          "target": {
+            "type": "IPAHBACRule",
+            "uid": "Test HBAC"
+          },
+          "edge": {
+            "type": "IPAHBACRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHost",
+            "uid": "host-1.domain.local"
+          },
+          "target": {
+            "type": "IPAHBACRule",
+            "uid": "Test HBAC"
+          },
+          "edge": {
+            "type": "IPAHBACRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHostGroup",
+            "uid": "ipaservers"
+          },
+          "target": {
+            "type": "IPAHBACRule",
+            "uid": "Test HBAC"
+          },
+          "edge": {
+            "type": "IPAHBACRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHBACService",
+            "uid": "gdm"
+          },
+          "target": {
+            "type": "IPAHBACRule",
+            "uid": "Test HBAC"
+          },
+          "edge": {
+            "type": "IPAHBACRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHBACServiceGroup",
+            "uid": "ftp"
+          },
+          "target": {
+            "type": "IPAHBACRule",
+            "uid": "Test HBAC"
+          },
+          "edge": {
+            "type": "IPAHBACRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "methods": 0,
+    "type": "freeipa",
+    "count": 21,
+    "version": 6
+  }
+}

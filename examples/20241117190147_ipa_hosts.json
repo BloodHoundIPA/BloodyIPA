@@ -1,0 +1,255 @@
+{
+  "data": [
+    {
+      "Properties": {
+        "objectclass": [
+          "ipaobject",
+          "nshost",
+          "ipahost",
+          "pkiuser",
+          "ipaservice",
+          "krbprincipalaux",
+          "krbprincipal",
+          "ieee802device",
+          "ipasshhost",
+          "top",
+          "ipaSshGroupOfPubKeys"
+        ],
+        "cn": [
+          "host-1.domain.local"
+        ],
+        "serverhostname": [
+          "host-1"
+        ],
+        "ipauniqueid": [
+          "67ce39f8-8d78-11ef-93fe-000c290709d1"
+        ],
+        "krbpwdpolicyreference": [
+          "cn=Default Host Password Policy,cn=computers,cn=accounts,dc=domain,dc=local"
+        ],
+        "krbcanonicalname": [
+          "host/host-1.domain.local@DOMAIN.LOCAL"
+        ],
+        "krbprincipalname": [
+          "host/host-1.domain.local@DOMAIN.LOCAL"
+        ],
+        "fqdn": [
+          "host-1.domain.local"
+        ],
+        "ipakrbrequirespreauth": true,
+        "ipakrbokasdelegate": false,
+        "ipakrboktoauthasdelegate": false,
+        "managedby_host": [
+          "host-1.domain.local"
+        ],
+        "managing_host": [
+          "server.domain.local",
+          "host-1.domain.local"
+        ],
+        "memberofindirect_netgroup": [
+          "hosts-1"
+        ],
+        "dn": "fqdn=host-1.domain.local,cn=computers,cn=accounts,dc=domain,dc=local",
+        "highvalue": false,
+        "name": "host-1.domain.local",
+        "object_id": "host-1.domain.local"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPASudoRule",
+            "uid": "Nano"
+          },
+          "target": {
+            "type": "IPAHost",
+            "uid": "host-1.domain.local"
+          },
+          "edge": {
+            "type": "IPASudoRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHost",
+            "uid": "host-1.domain.local"
+          },
+          "target": {
+            "type": "IPARole",
+            "uid": "helpdesk"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHost",
+            "uid": "host-1.domain.local"
+          },
+          "target": {
+            "type": "IPAHostGroup",
+            "uid": "hosts-1"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHost",
+            "uid": "host-1.domain.local"
+          },
+          "target": {
+            "type": "IPAHBACRule",
+            "uid": "Test HBAC"
+          },
+          "edge": {
+            "type": "IPAHBACRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHost",
+            "uid": "host-1.domain.local"
+          },
+          "target": {
+            "type": "IPANetGroup",
+            "uid": "networkgkoup-1"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "ipaobject",
+          "nshost",
+          "ipahost",
+          "ipaservice",
+          "pkiuser",
+          "krbprincipalaux",
+          "krbprincipal",
+          "krbticketpolicyaux",
+          "ipasshhost",
+          "ipaSshGroupOfPubKeys",
+          "ipaallowedoperations"
+        ],
+        "krbextradata": [
+          "\u0000\u0002\r\bgcentos/admin@DOMAIN.LOCAL\u0000"
+        ],
+        "krblastpwdchange": "20241010172425Z",
+        "serverhostname": [
+          "server"
+        ],
+        "cn": [
+          "server.domain.local"
+        ],
+        "ipauniqueid": [
+          "7f5797f6-872c-11ef-83bc-000c290709d1"
+        ],
+        "ipasshpubkey": [
+          "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBIYXDJ/Ey6c4L6xomZJMKAtILA1HOKeCrwW2PlJoAROhlhJG9oVXRz9/77RNFQNnQn3dQndoBBYm/X6xE6on1T4=",
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINmk0R7lXI8Z4h6E1dd8PtcMKQDMabXPHsQmRs9iV6vO",
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCnGLT0XhCHPmpHz1OTQ2Hq6wOrBN15dl0K7uxFbXoonDoE1C8CoI/CYC9QPrB7sTR1YQeL3AsGhsipcRoPM2xcoAs9+Y7MYOAj+eD8i9MQ9OEZb+g8TXFjuwPN3DGhlNlO0EylLRcUzwXSfYVgDG8cdCrziwVPla51Dc4GPbKyKccHREZ3NkARs7xT0I867kFFz3sedZiJll8k0lnGWg25gLCnjtrLyxMH7/BBTYV/OkKjwjHckTnCbO9q3tAoC/yiv00wzTtW2ic5qYeyDUp394NpOQA78uJhhpvQMkGD0vFjsOyS5mlgLnERv4mhuphCdd2B7obHW2Pdso0Jfr8eWuZJLaBBuqYimPkILgm0MswpibGpZ3cYq0lnm1oGJTlCQ2sMKfutoTPGVMfrC8+tHzuCWw7ZirKEWX0t7x5hAM78xd6qY+XZ6zGLfb64mDNM7luCqYImfRHKaUn9eogVYZwhyuNTvRzvw0JVMx5BovUo7iiPukgmzH0cabvmLms="
+        ],
+        "krbpwdpolicyreference": [
+          "cn=Default Host Password Policy,cn=computers,cn=accounts,dc=domain,dc=local"
+        ],
+        "krbcanonicalname": [
+          "host/server.domain.local@DOMAIN.LOCAL"
+        ],
+        "krbprincipalname": [
+          "host/server.domain.local@DOMAIN.LOCAL"
+        ],
+        "fqdn": [
+          "server.domain.local"
+        ],
+        "ipakrbrequirespreauth": true,
+        "ipakrbokasdelegate": false,
+        "ipakrboktoauthasdelegate": false,
+        "sshpubkeyfp": [
+          "SHA256:LhiOT9KJfmNP5o+RofXIO15GyZcdHW5Jybg0CjJ+kNE (ecdsa-sha2-nistp256)",
+          "SHA256:QGYgiSyw4tr51XcS4Spe8nQmv7HRUYj8b5NOgV3Nl0M (ssh-ed25519)",
+          "SHA256:5JVxvIuEn1nb61C/uxNicJiku0Cg/eWL6dDLqNGjja0 (ssh-rsa)"
+        ],
+        "managedby_host": [
+          "server.domain.local",
+          "host-1.domain.local"
+        ],
+        "managing_host": [
+          "server.domain.local"
+        ],
+        "memberofindirect_hbacrule": [
+          "Test HBAC"
+        ],
+        "memberofindirect_sudorule": [
+          "Nano"
+        ],
+        "memberofindirect_role": [
+          "helpdesk"
+        ],
+        "memberofindirect_hostgroup": [
+          "hosts-1"
+        ],
+        "memberofindirect_netgroup": [
+          "networkgkoup-1",
+          "hosts-1"
+        ],
+        "ipaallowedtoperform_read_keys_user": [
+          "user-1",
+          "admin"
+        ],
+        "ipaallowedtoperform_write_keys_user": [
+          "user-1"
+        ],
+        "dn": "fqdn=server.domain.local,cn=computers,cn=accounts,dc=domain,dc=local",
+        "highvalue": true,
+        "name": "server.domain.local",
+        "object_id": "server.domain.local"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAHost",
+            "uid": "server.domain.local"
+          },
+          "target": {
+            "type": "IPAHostGroup",
+            "uid": "ipaservers"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "methods": 0,
+    "type": "freeipa",
+    "count": 2,
+    "version": 6
+  }
+}

@@ -1,0 +1,237 @@
+{
+  "data": [
+    {
+      "Properties": {
+        "objectclass": [
+          "ipaobject",
+          "ipasudocmd"
+        ],
+        "ipauniqueid": "ea08c9da-9221-11ef-8eed-000c290709d1",
+        "name": "/usr/bin/bash",
+        "object_id": "/usr/bin/bash",
+        "description": "-",
+        "highvalue": false
+      }
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipaobject",
+          "ipasudocmd"
+        ],
+        "ipauniqueid": "6e6e187a-921c-11ef-ba57-000c290709d1",
+        "name": "/usr/bin/nano",
+        "object_id": "/usr/bin/nano",
+        "description": "Edit text file",
+        "highvalue": false
+      }
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipaobject",
+          "ipasudocmdgrp",
+          "groupOfNames",
+          "top"
+        ],
+        "ipauniqueid": "9a991434-921e-11ef-a0b5-000c290709d1",
+        "name": "nano",
+        "object_id": "nano",
+        "description": "-",
+        "highvalue": false
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPASudo",
+            "uid": "/usr/bin/nano"
+          },
+          "target": {
+            "type": "IPASudoGroup",
+            "uid": "nano"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipaassociation",
+          "ipasudorule"
+        ],
+        "ipauniqueid": "fe5319a8-9f8d-11ef-bc06-000c290709d1",
+        "name": "Example",
+        "object_id": "Example",
+        "uid": "Example",
+        "description": "-",
+        "ipaenabledflag": true,
+        "sudoorder": "",
+        "ipasudoopt": "",
+        "ipasudorunasgroupcategory": [],
+        "ipasudorunas_user": [],
+        "ipasudorunas_group": [],
+        "ipasudorunasextuser": [],
+        "highvalue": false
+      },
+      "Edges": []
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipaassociation",
+          "ipasudorule"
+        ],
+        "ipauniqueid": "d4aa377c-921c-11ef-ba5b-000c290709d1",
+        "name": "Nano",
+        "object_id": "Nano",
+        "uid": "Nano",
+        "description": "Description sudo rule nano",
+        "ipaenabledflag": true,
+        "sudoorder": "999",
+        "ipasudoopt": [
+          "!authenticate"
+        ],
+        "ipasudorunasgroupcategory": [],
+        "ipasudorunas_user": [
+          "admin"
+        ],
+        "ipasudorunas_group": [
+          "admins"
+        ],
+        "ipasudorunasextuser": [
+          "test"
+        ],
+        "highvalue": true
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAUser",
+            "uid": "user-1"
+          },
+          "target": {
+            "type": "IPASudoRule",
+            "uid": "Nano"
+          },
+          "edge": {
+            "type": "IPASudoRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUserGroup",
+            "uid": "editors"
+          },
+          "target": {
+            "type": "IPASudoRule",
+            "uid": "Nano"
+          },
+          "edge": {
+            "type": "IPASudoRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHost",
+            "uid": "host-1.domain.local"
+          },
+          "target": {
+            "type": "IPASudoRule",
+            "uid": "Nano"
+          },
+          "edge": {
+            "type": "IPASudoRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHostGroup",
+            "uid": "ipaservers"
+          },
+          "target": {
+            "type": "IPASudoRule",
+            "uid": "Nano"
+          },
+          "edge": {
+            "type": "IPASudoRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPASudo",
+            "uid": "/usr/bin/nano"
+          },
+          "target": {
+            "type": "IPASudoRule",
+            "uid": "Nano"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false,
+              "allow": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPASudoGroup",
+            "uid": "nano"
+          },
+          "target": {
+            "type": "IPASudoRule",
+            "uid": "Nano"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false,
+              "allow": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPASudo",
+            "uid": "/usr/bin/bash"
+          },
+          "target": {
+            "type": "IPASudoRule",
+            "uid": "Nano"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false,
+              "allow": false
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "methods": 0,
+    "type": "freeipa",
+    "count": 5,
+    "version": 6
+  }
+}

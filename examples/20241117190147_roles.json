@@ -1,0 +1,623 @@
+{
+  "data": [
+    {
+      "Properties": {
+        "objectclass": [
+          "groupofnames",
+          "nestedgroup",
+          "top",
+          "iparole"
+        ],
+        "cn": [
+          "Enrollment Administrator"
+        ],
+        "description": [
+          "Enrollment Administrator responsible for client(host) enrollment"
+        ],
+        "dn": "cn=Enrollment Administrator,cn=roles,cn=accounts,dc=domain,dc=local",
+        "name": "Enrollment Administrator",
+        "object_id": "Enrollment Administrator"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAService",
+            "uid": "DNS/server.domain.local@DOMAIN.LOCAL"
+          },
+          "target": {
+            "type": "IPARole",
+            "uid": "Enrollment Administrator"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "Enrollment Administrator"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Host Enrollment"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "iparole"
+        ],
+        "cn": [
+          "helpdesk"
+        ],
+        "description": [
+          "Helpdesk"
+        ],
+        "dn": "cn=helpdesk,cn=roles,cn=accounts,dc=domain,dc=local",
+        "name": "helpdesk",
+        "object_id": "helpdesk"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAHost",
+            "uid": "host-1.domain.local"
+          },
+          "target": {
+            "type": "IPARole",
+            "uid": "helpdesk"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUserGroup",
+            "uid": "editors"
+          },
+          "target": {
+            "type": "IPARole",
+            "uid": "helpdesk"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHostGroup",
+            "uid": "hosts-1"
+          },
+          "target": {
+            "type": "IPARole",
+            "uid": "helpdesk"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAService",
+            "uid": "HTTP/server.domain.local@DOMAIN.LOCAL"
+          },
+          "target": {
+            "type": "IPARole",
+            "uid": "helpdesk"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAService",
+            "uid": "DNS/server.domain.local@DOMAIN.LOCAL"
+          },
+          "target": {
+            "type": "IPARole",
+            "uid": "helpdesk"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "helpdesk"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Modify Users and Reset passwords"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "helpdesk"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Modify Group membership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "groupofnames",
+          "nestedgroup",
+          "top",
+          "iparole"
+        ],
+        "cn": [
+          "IT Security Specialist"
+        ],
+        "description": [
+          "IT Security Specialist"
+        ],
+        "dn": "cn=IT Security Specialist,cn=roles,cn=accounts,dc=domain,dc=local",
+        "name": "IT Security Specialist",
+        "object_id": "IT Security Specialist"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAService",
+            "uid": "HTTP/server.domain.local@DOMAIN.LOCAL"
+          },
+          "target": {
+            "type": "IPARole",
+            "uid": "IT Security Specialist"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "IT Security Specialist"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Netgroups Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "IT Security Specialist"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "HBAC Administrator"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "IT Security Specialist"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Sudo Administrator"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "groupofnames",
+          "nestedgroup",
+          "top",
+          "iparole"
+        ],
+        "cn": [
+          "IT Specialist"
+        ],
+        "description": [
+          "IT Specialist"
+        ],
+        "dn": "cn=IT Specialist,cn=roles,cn=accounts,dc=domain,dc=local",
+        "name": "IT Specialist",
+        "object_id": "IT Specialist"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "IT Specialist"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "IT Specialist"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Host Group Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "IT Specialist"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Service Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "IT Specialist"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Automount Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "groupofnames",
+          "nestedgroup",
+          "top",
+          "iparole"
+        ],
+        "cn": [
+          "Security Architect"
+        ],
+        "description": [
+          "Security Architect"
+        ],
+        "dn": "cn=Security Architect,cn=roles,cn=accounts,dc=domain,dc=local",
+        "name": "Security Architect",
+        "object_id": "Security Architect"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "Security Architect"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Delegation Administrator"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "Security Architect"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "Security Architect"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Write IPA Configuration"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "Security Architect"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Password Policy Administrator"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "groupofnames",
+          "nestedgroup",
+          "top",
+          "iparole"
+        ],
+        "cn": [
+          "Subordinate ID Selfservice User"
+        ],
+        "description": [
+          "User that can self-request subordinate ids"
+        ],
+        "dn": "cn=Subordinate ID Selfservice User,cn=roles,cn=accounts,dc=domain,dc=local",
+        "name": "Subordinate ID Selfservice User",
+        "object_id": "Subordinate ID Selfservice User"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "Subordinate ID Selfservice User"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Subordinate ID Selfservice Users"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "groupofnames",
+          "nestedgroup",
+          "top",
+          "iparole"
+        ],
+        "cn": [
+          "User Administrator"
+        ],
+        "description": [
+          "Responsible for creating Users and Groups"
+        ],
+        "dn": "cn=User Administrator,cn=roles,cn=accounts,dc=domain,dc=local",
+        "name": "User Administrator",
+        "object_id": "User Administrator"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAUser",
+            "uid": "user-1"
+          },
+          "target": {
+            "type": "IPARole",
+            "uid": "User Administrator"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "User Administrator"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "User Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "User Administrator"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Group Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "User Administrator"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Stage User Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "User Administrator"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Subordinate ID Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "groupofnames",
+          "nestedgroup",
+          "top",
+          "iparole"
+        ],
+        "cn": [
+          "UsersManagerRole"
+        ],
+        "dn": "cn=UsersManagerRole,cn=roles,cn=accounts,dc=domain,dc=local",
+        "name": "UsersManagerRole",
+        "object_id": "UsersManagerRole"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "UsersManagerRole"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "UsersManagerPrivilege"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "methods": 0,
+    "type": "freeipa",
+    "count": 8,
+    "version": 6
+  }
+}
