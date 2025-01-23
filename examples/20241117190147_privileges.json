@@ -1,0 +1,4949 @@
+{
+  "data": [
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "System accounts able to access trust information"
+        ],
+        "cn": [
+          "ADTrust Agents"
+        ],
+        "dn": "cn=ADTrust Agents,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "ADTrust Agents",
+        "object_id": "ADTrust Agents"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "ADTrust Agents"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read system trust accounts"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "nestedgroup",
+          "groupofnames",
+          "top",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Read Automember definitions"
+        ],
+        "cn": [
+          "Automember Readers"
+        ],
+        "dn": "cn=Automember Readers,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Automember Readers",
+        "object_id": "Automember Readers"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Automember Readers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Automember Definitions"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Automember Readers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Automember Rules"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "nestedgroup",
+          "groupofnames",
+          "top",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Automember Task Administrator"
+        ],
+        "cn": [
+          "Automember Task Administrator"
+        ],
+        "dn": "cn=Automember Task Administrator,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Automember Task Administrator",
+        "object_id": "Automember Task Administrator"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Automember Task Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Add Automember Rebuild Membership Task"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Automember Task Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Automember Definitions"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Automember Task Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Automember Rules"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Automember Task Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Automember Tasks"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Automount Administrators"
+        ],
+        "cn": [
+          "Automount Administrators"
+        ],
+        "dn": "cn=Automount Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Automount Administrators",
+        "object_id": "Automount Administrators"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "IT Specialist"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Automount Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Automount Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Automount Keys"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Automount Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Automount Keys"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Automount Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove Automount Keys"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Automount Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Automount Locations"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Automount Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove Automount Locations"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Automount Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Automount Maps"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Automount Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Automount Maps"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Automount Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove Automount Maps"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "nestedgroup",
+          "groupofnames",
+          "top",
+          "ipaprivilege"
+        ],
+        "description": [
+          "CA Administrator"
+        ],
+        "cn": [
+          "CA Administrator"
+        ],
+        "dn": "cn=CA Administrator,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "CA Administrator",
+        "object_id": "CA Administrator"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "CA Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add CA"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "CA Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Delete CA"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "CA Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify CA"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "CA Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add CA ACL"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "CA Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Delete CA ACL"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "CA Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage CA ACL Membership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "CA Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify CA ACL"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "CA Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Delete Certificate Profile"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "CA Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Import Certificate Profile"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "CA Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Certificate Profile"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Certificate Administrators"
+        ],
+        "cn": [
+          "Certificate Administrators"
+        ],
+        "dn": "cn=Certificate Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Certificate Administrators",
+        "object_id": "Certificate Administrators"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Retrieve Certificates from the CA"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Request Certificate"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Request Certificates from a different host"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Get Certificates status from the CA"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Revoke Certificate"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Certificate Remove Hold"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Request Certificate ignoring CA ACLs"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add CA Certificate For Renewal"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Certificate Store Entry"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify CA Certificate"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify CA Certificate For Renewal"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Certificate Store Entry"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove Certificate Store Entry"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Certificate Identity Mapping Administrators"
+        ],
+        "cn": [
+          "Certificate Identity Mapping Administrators"
+        ],
+        "dn": "cn=Certificate Identity Mapping Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Certificate Identity Mapping Administrators",
+        "object_id": "Certificate Identity Mapping Administrators"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Identity Mapping Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Certmap Configuration"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Identity Mapping Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Certmap Rules"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Identity Mapping Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Delete Certmap Rules"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Identity Mapping Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Certmap Rules"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Certificate Identity Mapping Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage User Certificate Mappings"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Role administration"
+        ],
+        "cn": [
+          "Delegation Administrator"
+        ],
+        "dn": "cn=Delegation Administrator,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Delegation Administrator",
+        "object_id": "Delegation Administrator"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "Security Architect"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Delegation Administrator"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Delegation Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Privilege Membership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Delegation Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Privileges"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Delegation Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Privileges"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Delegation Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove Privileges"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Delegation Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Roles"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Delegation Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Role Membership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Delegation Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Roles"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Delegation Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove Roles"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "DNS Administrators"
+        ],
+        "cn": [
+          "DNS Administrators"
+        ],
+        "dn": "cn=DNS Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "DNS Administrators",
+        "object_id": "DNS Administrators"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read DNS Configuration"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Write DNS Configuration"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify DNS Servers Configuration"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read DNS Servers Configuration"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add DNS Entries"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read DNS Entries"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read DNSSEC metadata"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove DNS Entries"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Update DNS Entries"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add IPA Locations"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify IPA Locations"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read IPA Locations"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove IPA Locations"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Realm Domains"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Locations of IPA Servers"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Status of Services on IPA Servers"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "DNS Servers"
+        ],
+        "cn": [
+          "DNS Servers"
+        ],
+        "dn": "cn=DNS Servers,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "DNS Servers",
+        "object_id": "DNS Servers"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Servers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read DNS Configuration"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Servers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Write DNS Configuration"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Servers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read DNS Servers Configuration"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Servers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add DNS Entries"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Servers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage DNSSEC keys"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Servers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage DNSSEC metadata"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Servers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read DNS Entries"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Servers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove DNS Entries"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "DNS Servers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Update DNS Entries"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "External IdP server Administrators"
+        ],
+        "cn": [
+          "External IdP server Administrators"
+        ],
+        "dn": "cn=External IdP server Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "External IdP server Administrators",
+        "object_id": "External IdP server Administrators"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "External IdP server Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add External IdP server"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "External IdP server Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Delete External IdP server"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "External IdP server Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify External IdP server"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "External IdP server Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read External IdP server"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Group Administrators"
+        ],
+        "cn": [
+          "Group Administrators"
+        ],
+        "dn": "cn=Group Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Group Administrators",
+        "object_id": "Group Administrators"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "User Administrator"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Group Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Group Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Groups"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Group Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify External Group Membership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Group Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Group Membership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Group Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Groups"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Group Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove Groups"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "nestedgroup",
+          "groupofnames",
+          "top",
+          "ipaprivilege"
+        ],
+        "description": [
+          "HBAC Administrator"
+        ],
+        "cn": [
+          "HBAC Administrator"
+        ],
+        "dn": "cn=HBAC Administrator,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "HBAC Administrator",
+        "object_id": "HBAC Administrator"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "IT Security Specialist"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "HBAC Administrator"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "HBAC Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add HBAC Rule"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "HBAC Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Delete HBAC Rule"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "HBAC Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage HBAC Rule Membership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "HBAC Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify HBAC Rule"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "HBAC Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add HBAC Services"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "HBAC Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Delete HBAC Services"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "HBAC Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add HBAC Service Groups"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "HBAC Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Delete HBAC Service Groups"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "HBAC Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage HBAC Service Group Membership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Host Administrators"
+        ],
+        "cn": [
+          "Host Administrators"
+        ],
+        "dn": "cn=Host Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Host Administrators",
+        "object_id": "Host Administrators"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "IT Specialist"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Retrieve Certificates from the CA"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Revoke Certificate"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Hosts"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add krbPrincipalName to a Host"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Enroll a Host"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Host Certificates"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Host Enrollment Password"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Host Keytab"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Host Keytab Permissions"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Host Principals"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Host Resource Delegation"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Host SSH Public Keys"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Hosts"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove Hosts"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Service Keytab"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Service Keytab Permissions"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Service Resource Delegation"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Service Resource Delegation Permissions"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Host Enrollment"
+        ],
+        "cn": [
+          "Host Enrollment"
+        ],
+        "dn": "cn=Host Enrollment,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Host Enrollment",
+        "object_id": "Host Enrollment"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "Enrollment Administrator"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Host Enrollment"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Enrollment"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add krbPrincipalName to a Host"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Enrollment"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Enroll a Host"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Enrollment"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Host Certificates"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Enrollment"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Host Enrollment Password"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Enrollment"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Host Keytab"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Enrollment"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Host Principals"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Host Group Administrators"
+        ],
+        "cn": [
+          "Host Group Administrators"
+        ],
+        "dn": "cn=Host Group Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Host Group Administrators",
+        "object_id": "Host Group Administrators"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "IT Specialist"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Host Group Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Group Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Hostgroups"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Group Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Hostgroup Membership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Group Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Hostgroups"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Host Group Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove Hostgroups"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "nestedgroup",
+          "groupofnames",
+          "top",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Read list of IPA masters"
+        ],
+        "cn": [
+          "IPA Masters Readers"
+        ],
+        "dn": "cn=IPA Masters Readers,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "IPA Masters Readers",
+        "object_id": "IPA Masters Readers"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "IPA Masters Readers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read IPA Masters"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "nestedgroup",
+          "groupofnames",
+          "top",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Read global and per-user Kerberos ticket policy"
+        ],
+        "cn": [
+          "Kerberos Ticket Policy Readers"
+        ],
+        "dn": "cn=Kerberos Ticket Policy Readers,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Kerberos Ticket Policy Readers",
+        "object_id": "Kerberos Ticket Policy Readers"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Kerberos Ticket Policy Readers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Default Kerberos Ticket Policy"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Kerberos Ticket Policy Readers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read User Kerberos Ticket Policy"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Modify Group membership"
+        ],
+        "cn": [
+          "Modify Group membership"
+        ],
+        "dn": "cn=Modify Group membership,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Modify Group membership",
+        "object_id": "Modify Group membership"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "helpdesk"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Modify Group membership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Modify Group membership"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify External Group Membership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Modify Group membership"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Group Membership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Modify Users and Reset passwords"
+        ],
+        "cn": [
+          "Modify Users and Reset passwords"
+        ],
+        "dn": "cn=Modify Users and Reset passwords,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Modify Users and Reset passwords",
+        "object_id": "Modify Users and Reset passwords"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "helpdesk"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Modify Users and Reset passwords"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Modify Users and Reset passwords"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Change User password"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Modify Users and Reset passwords"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage User Certificates"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Modify Users and Reset passwords"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage User Principals"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Modify Users and Reset passwords"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Users"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Netgroups Administrators"
+        ],
+        "cn": [
+          "Netgroups Administrators"
+        ],
+        "dn": "cn=Netgroups Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Netgroups Administrators",
+        "object_id": "Netgroups Administrators"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "IT Security Specialist"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Netgroups Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Netgroups Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Netgroups"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Netgroups Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Netgroup Membership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Netgroups Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Netgroups"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Netgroups Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove Netgroups"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Passkey Administrators"
+        ],
+        "cn": [
+          "Passkey Administrators"
+        ],
+        "dn": "cn=Passkey Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Passkey Administrators",
+        "object_id": "Passkey Administrators"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Passkey Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Passkey Configuration"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Passkey Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Passkey Mappings"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "nestedgroup",
+          "groupofnames",
+          "top",
+          "ipaprivilege"
+        ],
+        "description": [
+          "PassSync Service"
+        ],
+        "cn": [
+          "PassSync Service"
+        ],
+        "dn": "cn=PassSync Service,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "PassSync Service",
+        "object_id": "PassSync Service"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "PassSync Service"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Change Admin User password"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "PassSync Service"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Change User password"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "PassSync Service"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read User NT Attributes"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "nestedgroup",
+          "groupofnames",
+          "top",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Password Policy Administrator"
+        ],
+        "cn": [
+          "Password Policy Administrator"
+        ],
+        "dn": "cn=Password Policy Administrator,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Password Policy Administrator",
+        "object_id": "Password Policy Administrator"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "Security Architect"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Password Policy Administrator"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Password Policy Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Group Password Policy costemplate"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Password Policy Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Delete Group Password Policy costemplate"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Password Policy Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Group Password Policy costemplate"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Password Policy Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Group Password Policy costemplate"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Password Policy Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Group Password Policy"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Password Policy Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Delete Group Password Policy"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Password Policy Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Group Password Policy"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Password Policy Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Group Password Policy"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "nestedgroup",
+          "groupofnames",
+          "top",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Read password policies"
+        ],
+        "cn": [
+          "Password Policy Readers"
+        ],
+        "dn": "cn=Password Policy Readers,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Password Policy Readers",
+        "object_id": "Password Policy Readers"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Password Policy Readers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Group Password Policy costemplate"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Password Policy Readers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Group Password Policy"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "nestedgroup",
+          "groupofnames",
+          "top",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Read roles, privileges, permissions and ACIs"
+        ],
+        "cn": [
+          "RBAC Readers"
+        ],
+        "dn": "cn=RBAC Readers,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "RBAC Readers",
+        "object_id": "RBAC Readers"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "RBAC Readers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read ACIs"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "RBAC Readers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Permissions"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "RBAC Readers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Privileges"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "RBAC Readers"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Roles"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Replication Administrators"
+        ],
+        "cn": [
+          "Replication Administrators"
+        ],
+        "dn": "cn=Replication Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Replication Administrators",
+        "object_id": "Replication Administrators"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "Security Architect"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Add Replication Agreements"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Modify Replication Agreements"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Read Replication Agreements"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Remove Replication Agreements"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Modify DNA Range"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Read PassSync Managers Configuration"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Read Replication Changelog Configuration"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Write Replication Changelog Configuration"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Modify PassSync Managers Configuration"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Read LDBM Database Configuration"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Add Configuration Sub-Entries"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Read DNA Range"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Read domain level"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Topology Segments"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Topology Segments"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Topology Segments"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Replication Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove Topology Segments"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "SELinux User Map Administrators"
+        ],
+        "cn": [
+          "SELinux User Map Administrators"
+        ],
+        "dn": "cn=SELinux User Map Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "SELinux User Map Administrators",
+        "object_id": "SELinux User Map Administrators"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "SELinux User Map Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add SELinux User Maps"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "SELinux User Map Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify SELinux User Maps"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "SELinux User Map Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove SELinux User Maps"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Service Administrators"
+        ],
+        "cn": [
+          "Service Administrators"
+        ],
+        "dn": "cn=Service Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Service Administrators",
+        "object_id": "Service Administrators"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "IT Specialist"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Service Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Service Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Services"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Service Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Service Keytab"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Service Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Service Keytab Permissions"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Service Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Service Principals"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Service Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Service Resource Delegation"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Service Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Service Resource Delegation Permissions"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Service Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Services"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Service Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove Services"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Service Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Service Delegations"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Service Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Service Delegation Membership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Service Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Service Delegations"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Service Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove Service Delegations"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Stage User Administrators"
+        ],
+        "cn": [
+          "Stage User Administrators"
+        ],
+        "dn": "cn=Stage User Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Stage User Administrators",
+        "object_id": "Stage User Administrators"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "User Administrator"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Stage User Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Stage User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Radius Servers"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Stage User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Stage User"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Stage User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Preserved Users"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Stage User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Stage User"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Stage User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify User RDN"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Stage User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Preserve User"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Stage User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Preserved Users"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Stage User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Stage User password"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Stage User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Stage Users"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Stage User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove Stage User"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Stage User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove preserved User"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Stage User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Reset Preserved User password"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Stage User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Undelete User"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Stage User Provisioning"
+        ],
+        "cn": [
+          "Stage User Provisioning"
+        ],
+        "dn": "cn=Stage User Provisioning,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Stage User Provisioning",
+        "object_id": "Stage User Provisioning"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Stage User Provisioning"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Stage User"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Subordinate ID Administrators"
+        ],
+        "cn": [
+          "Subordinate ID Administrators"
+        ],
+        "dn": "cn=Subordinate ID Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Subordinate ID Administrators",
+        "object_id": "Subordinate ID Administrators"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "User Administrator"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Subordinate ID Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Subordinate ID Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Manage subordinate ID"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Subordinate ID Selfservice User"
+        ],
+        "cn": [
+          "Subordinate ID Selfservice Users"
+        ],
+        "dn": "cn=Subordinate ID Selfservice Users,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Subordinate ID Selfservice Users",
+        "object_id": "Subordinate ID Selfservice Users"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "Subordinate ID Selfservice User"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Subordinate ID Selfservice Users"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Subordinate ID Selfservice Users"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Self-service subordinate ID"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "nestedgroup",
+          "groupofnames",
+          "top",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Sudo Administrator"
+        ],
+        "cn": [
+          "Sudo Administrator"
+        ],
+        "dn": "cn=Sudo Administrator,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Sudo Administrator",
+        "object_id": "Sudo Administrator"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "IT Security Specialist"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Sudo Administrator"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Sudo Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Sudo Command"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Sudo Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Delete Sudo Command"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Sudo Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Sudo Command"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Sudo Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Sudo Command Group"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Sudo Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Delete Sudo Command Group"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Sudo Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Sudo Command Group Membership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Sudo Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Sudo Command Group"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Sudo Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Sudo rule"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Sudo Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Delete Sudo rule"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Sudo Administrator"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Sudo rule"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "User Administrators"
+        ],
+        "cn": [
+          "User Administrators"
+        ],
+        "dn": "cn=User Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "User Administrators",
+        "object_id": "User Administrators"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "User Administrator"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "User Administrators"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Radius Servers"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Subordinate Ids"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove Subordinate Ids"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add User to default group"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Users"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Change User password"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage User Certificates"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage User Principals"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage User SSH Public Keys"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Users"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read UPG Definition"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read User Kerberos Login Attributes"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Remove Users"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "User Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Unlock User"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "nestedgroup",
+          "groupofnames",
+          "top",
+          "ipaprivilege"
+        ],
+        "cn": [
+          "UsersManagerPrivilege"
+        ],
+        "dn": "cn=UsersManagerPrivilege,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "UsersManagerPrivilege",
+        "object_id": "UsersManagerPrivilege"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "UsersManagerRole"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "UsersManagerPrivilege"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "UsersManagerPrivilege"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "UserManager"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "nestedgroup",
+          "groupofnames",
+          "top",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Vault Administrators"
+        ],
+        "cn": [
+          "Vault Administrators"
+        ],
+        "dn": "cn=Vault Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Vault Administrators",
+        "object_id": "Vault Administrators"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Vault Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Vaults"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Vault Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Delete Vaults"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Vault Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Vault Membership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Vault Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Vault Ownership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Vault Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Vaults"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Vault Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Vaults"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Vault Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Add Vault Containers"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Vault Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Delete Vault Containers"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Vault Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Manage Vault Container Ownership"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Vault Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Modify Vault Containers"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Vault Administrators"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "System: Read Vault Containers"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipaprivilege"
+        ],
+        "description": [
+          "Write IPA Configuration"
+        ],
+        "cn": [
+          "Write IPA Configuration"
+        ],
+        "dn": "cn=Write IPA Configuration,cn=privileges,cn=pbac,dc=domain,dc=local",
+        "name": "Write IPA Configuration",
+        "object_id": "Write IPA Configuration"
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPARole",
+            "uid": "Security Architect"
+          },
+          "target": {
+            "type": "IPAPrivilege",
+            "uid": "Write IPA Configuration"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAPrivilege",
+            "uid": "Write IPA Configuration"
+          },
+          "target": {
+            "type": "IPAPermission",
+            "uid": "Write IPA Configuration"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "methods": 0,
+    "type": "freeipa",
+    "count": 38,
+    "version": 6
+  }
+}

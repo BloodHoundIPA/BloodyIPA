@@ -1,0 +1,771 @@
+{
+  "data": [
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "posixgroup",
+          "ipausergroup",
+          "ipaobject",
+          "nestedGroup",
+          "ipaNTGroupAttrs"
+        ],
+        "ipauniqueid": [
+          "7b49722e-872c-11ef-bcb6-000c290709d1"
+        ],
+        "ipantsecurityidentifier": [
+          "S-1-5-21-1095401018-412189053-1189684026-512"
+        ],
+        "description": [
+          "Account administrators group"
+        ],
+        "cn": [
+          "admins"
+        ],
+        "gidnumber": [
+          "1539800000"
+        ],
+        "dn": "cn=admins,cn=groups,cn=accounts,dc=domain,dc=local",
+        "name": "admins",
+        "object_id": "admins",
+        "highvalue": true
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAUser",
+            "uid": "admin"
+          },
+          "target": {
+            "type": "IPAUserGroup",
+            "uid": "admins"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAService",
+            "uid": "DNS/server.domain.local@DOMAIN.LOCAL"
+          },
+          "target": {
+            "type": "IPAUserGroup",
+            "uid": "admins"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "posixgroup",
+          "ipausergroup",
+          "ipaobject",
+          "nestedGroup",
+          "ipantgroupattrs"
+        ],
+        "ipauniqueid": [
+          "7b4b468a-872c-11ef-bf04-000c290709d1"
+        ],
+        "ipantsecurityidentifier": [
+          "S-1-5-21-1095401018-412189053-1189684026-1002"
+        ],
+        "description": [
+          "Limited admins who can edit other users"
+        ],
+        "cn": [
+          "editors"
+        ],
+        "gidnumber": [
+          "1539800002"
+        ],
+        "memberindirect_user": [
+          "user-1"
+        ],
+        "dn": "cn=editors,cn=groups,cn=accounts,dc=domain,dc=local",
+        "name": "editors",
+        "object_id": "editors",
+        "highvalue": false
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAService",
+            "uid": "HTTP/server.domain.local@DOMAIN.LOCAL"
+          },
+          "target": {
+            "type": "IPAUserGroup",
+            "uid": "editors"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUserGroup",
+            "uid": "ipausers"
+          },
+          "target": {
+            "type": "IPAUserGroup",
+            "uid": "editors"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUserGroup",
+            "uid": "ipausers"
+          },
+          "target": {
+            "type": "IPAUserGroup",
+            "uid": "editors"
+          },
+          "edge": {
+            "type": "IPAMemberManager",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUserGroup",
+            "uid": "editors"
+          },
+          "target": {
+            "type": "IPARole",
+            "uid": "helpdesk"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUserGroup",
+            "uid": "editors"
+          },
+          "target": {
+            "type": "IPAHBACRule",
+            "uid": "Test HBAC"
+          },
+          "edge": {
+            "type": "IPAHBACRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUserGroup",
+            "uid": "editors"
+          },
+          "target": {
+            "type": "IPASudoRule",
+            "uid": "Nano"
+          },
+          "edge": {
+            "type": "IPASudoRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "nestedgroup",
+          "ipausergroup",
+          "ipaobject"
+        ],
+        "ipauniqueid": [
+          "7b4b0d64-872c-11ef-9125-000c290709d1"
+        ],
+        "description": [
+          "Default group for all users"
+        ],
+        "cn": [
+          "ipausers"
+        ],
+        "memberofindirect_hbacrule": [
+          "Test HBAC"
+        ],
+        "memberofindirect_sudorule": [
+          "Nano"
+        ],
+        "memberofindirect_role": [
+          "helpdesk"
+        ],
+        "dn": "cn=ipausers,cn=groups,cn=accounts,dc=domain,dc=local",
+        "name": "ipausers",
+        "object_id": "ipausers",
+        "highvalue": false
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAUser",
+            "uid": "user-1"
+          },
+          "target": {
+            "type": "IPAUserGroup",
+            "uid": "ipausers"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUser",
+            "uid": "admin"
+          },
+          "target": {
+            "type": "IPAUserGroup",
+            "uid": "ipausers"
+          },
+          "edge": {
+            "type": "IPAMemberManager",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUserGroup",
+            "uid": "editors"
+          },
+          "target": {
+            "type": "IPAUserGroup",
+            "uid": "ipausers"
+          },
+          "edge": {
+            "type": "IPAMemberManager",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUserGroup",
+            "uid": "ipausers"
+          },
+          "target": {
+            "type": "IPAUserGroup",
+            "uid": "editors"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUserGroup",
+            "uid": "ipausers"
+          },
+          "target": {
+            "type": "IPANetGroup",
+            "uid": "networkgkoup-1"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupofnames",
+          "ipausergroup",
+          "nestedgroup",
+          "ipaobject"
+        ],
+        "ipauniqueid": [
+          "672485e4-872d-11ef-8451-000c290709d1"
+        ],
+        "description": [
+          "Trusts administrators group"
+        ],
+        "cn": [
+          "trust admins"
+        ],
+        "dn": "cn=trust admins,cn=groups,cn=accounts,dc=domain,dc=local",
+        "name": "trust admins",
+        "object_id": "trust admins",
+        "highvalue": true
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAUser",
+            "uid": "admin"
+          },
+          "target": {
+            "type": "IPAUserGroup",
+            "uid": "trust admins"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipaobject",
+          "ipahostgroup",
+          "nestedGroup",
+          "groupOfNames",
+          "top",
+          "mepOriginEntry"
+        ],
+        "ipauniqueid": [
+          "0b398218-8d84-11ef-bc06-000c290709d1"
+        ],
+        "mepmanagedentry": [
+          "cn=admins,cn=ng,cn=alt,dc=domain,dc=local"
+        ],
+        "cn": [
+          "admins"
+        ],
+        "dn": "cn=admins,cn=hostgroups,cn=accounts,dc=domain,dc=local",
+        "name": "admins",
+        "object_id": "admins",
+        "highvalue": false
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAUserGroup",
+            "uid": "admins"
+          },
+          "target": {
+            "type": "IPAHostGroup",
+            "uid": "admins"
+          },
+          "edge": {
+            "type": "IPAMemberManager",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUser",
+            "uid": "admin"
+          },
+          "target": {
+            "type": "IPAHostGroup",
+            "uid": "admins"
+          },
+          "edge": {
+            "type": "IPAMemberManager",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHostGroup",
+            "uid": "admins"
+          },
+          "target": {
+            "type": "IPANetGroup",
+            "uid": "networkgkoup-1"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipaobject",
+          "ipahostgroup",
+          "nestedGroup",
+          "groupOfNames",
+          "top",
+          "mepOriginEntry"
+        ],
+        "ipauniqueid": [
+          "0e693e20-8d79-11ef-bd4b-000c290709d1"
+        ],
+        "mepmanagedentry": [
+          "cn=hosts-1,cn=ng,cn=alt,dc=domain,dc=local"
+        ],
+        "cn": [
+          "hosts-1"
+        ],
+        "memberindirect_host": [
+          "server.domain.local"
+        ],
+        "dn": "cn=hosts-1,cn=hostgroups,cn=accounts,dc=domain,dc=local",
+        "name": "hosts-1",
+        "object_id": "hosts-1",
+        "highvalue": false
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAHost",
+            "uid": "host-1.domain.local"
+          },
+          "target": {
+            "type": "IPAHostGroup",
+            "uid": "hosts-1"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHostGroup",
+            "uid": "ipaservers"
+          },
+          "target": {
+            "type": "IPAHostGroup",
+            "uid": "hosts-1"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUserGroup",
+            "uid": "editors"
+          },
+          "target": {
+            "type": "IPAHostGroup",
+            "uid": "hosts-1"
+          },
+          "edge": {
+            "type": "IPAMemberManager",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUser",
+            "uid": "admin"
+          },
+          "target": {
+            "type": "IPAHostGroup",
+            "uid": "hosts-1"
+          },
+          "edge": {
+            "type": "IPAMemberManager",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "top",
+          "groupOfNames",
+          "nestedGroup",
+          "ipaobject",
+          "ipahostgroup"
+        ],
+        "ipauniqueid": [
+          "7b4b7678-872c-11ef-8796-000c290709d1"
+        ],
+        "cn": [
+          "ipaservers"
+        ],
+        "description": [
+          "IPA server hosts"
+        ],
+        "dn": "cn=ipaservers,cn=hostgroups,cn=accounts,dc=domain,dc=local",
+        "name": "ipaservers",
+        "object_id": "ipaservers",
+        "highvalue": true
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAHost",
+            "uid": "server.domain.local"
+          },
+          "target": {
+            "type": "IPAHostGroup",
+            "uid": "ipaservers"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPASudoRule",
+            "uid": "Nano"
+          },
+          "target": {
+            "type": "IPAHostGroup",
+            "uid": "ipaservers"
+          },
+          "edge": {
+            "type": "IPASudoRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHostGroup",
+            "uid": "ipaservers"
+          },
+          "target": {
+            "type": "IPAHostGroup",
+            "uid": "hosts-1"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHostGroup",
+            "uid": "ipaservers"
+          },
+          "target": {
+            "type": "IPANetGroup",
+            "uid": "networkgkoup-1"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHostGroup",
+            "uid": "ipaservers"
+          },
+          "target": {
+            "type": "IPAHBACRule",
+            "uid": "Test HBAC"
+          },
+          "edge": {
+            "type": "IPAHBACRuleTo",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipaobject",
+          "ipaassociation",
+          "ipanisnetgroup"
+        ],
+        "ipauniqueid": [
+          "4ac75500-8d79-11ef-ba57-000c290709d1"
+        ],
+        "nisdomainname": [
+          "domain.local"
+        ],
+        "cn": [
+          "networkgkoup-1"
+        ],
+        "dn": "ipaUniqueID=4ac75500-8d79-11ef-ba57-000c290709d1,cn=ng,cn=alt,dc=domain,dc=local",
+        "name": "networkgkoup-1",
+        "object_id": "networkgkoup-1",
+        "highvalue": false
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAUser",
+            "uid": "admin"
+          },
+          "target": {
+            "type": "IPANetGroup",
+            "uid": "networkgkoup-1"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUserGroup",
+            "uid": "ipausers"
+          },
+          "target": {
+            "type": "IPANetGroup",
+            "uid": "networkgkoup-1"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHost",
+            "uid": "host-1.domain.local"
+          },
+          "target": {
+            "type": "IPANetGroup",
+            "uid": "networkgkoup-1"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHostGroup",
+            "uid": "ipaservers"
+          },
+          "target": {
+            "type": "IPANetGroup",
+            "uid": "networkgkoup-1"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAHostGroup",
+            "uid": "admins"
+          },
+          "target": {
+            "type": "IPANetGroup",
+            "uid": "networkgkoup-1"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Properties": {
+        "objectclass": [
+          "ipaobject",
+          "ipaassociation",
+          "ipanisnetgroup"
+        ],
+        "ipauniqueid": [
+          "a3111c2c-b7f5-11ef-87ff-000c290709d1"
+        ],
+        "nisdomainname": [
+          "domain.local"
+        ],
+        "cn": [
+          "test"
+        ],
+        "description": [
+          "test ldap"
+        ],
+        "dn": "ipaUniqueID=a3111c2c-b7f5-11ef-87ff-000c290709d1,cn=ng,cn=alt,dc=domain,dc=local",
+        "name": "test",
+        "object_id": "test",
+        "highvalue": false
+      },
+      "Edges": []
+    }
+  ],
+  "meta": {
+    "methods": 0,
+    "type": "freeipa",
+    "count": 9,
+    "version": 6
+  }
+}
