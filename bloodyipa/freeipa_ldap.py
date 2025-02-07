@@ -42,14 +42,16 @@ class FreeIPALDAP(FreeIPA):
     _connection: Connection
     _dc: str
 
-    def __init__(self, ip: str, dc: str, user: str = None, password: str = None, protocol: str = "ldaps"):
+    def __init__(self, ip: str, dc: str, user: str = None, password: str = None, protocol: str = "ldaps", auth_type: str = "ANONYMOUS"):
         server = Server(f"{protocol}://{ip}:{'636' if protocol == 'ldaps' else '389'}", get_info=ALL)
         self._dc = ','.join([f'dc={part}' for part in dc.split('.')])
         self._logger = logging.getLogger('ldap')
-        if all((user, password)):
+        if auth_type == 'SIMPLE':
             self._auth_simple(server, user, password)
-        else:
+        elif auth_type == 'ANONYMOUS':
             self._auth_anonymous(server)
+        else:
+            raise Exception('The authentication method is not supported')
 
     def _auth_simple(self, server: Server, user: str, password: str):
 
@@ -65,37 +67,21 @@ class FreeIPALDAP(FreeIPA):
         self._connection = Connection(server, authentication=ANONYMOUS)
         self._connection.bind()
 
-    def collect_users(self):
+    def _collect_users(self):
         self._connection.search(
             f'cn=users,cn=accounts,{self._dc}',
             '(uid=*)',
             LEVEL, attributes=ALL_ATTRIBUTES
         )
+        return self._connection.entries
 
-        return self._collect_ipa_objects(
-            'IPAUser',
-            'uid',
-            'uid',
-            lambda edge: edge['target']['type'] == 'IPAUserGroup'
-            and edge['target']['uid'] == 'admins'
-        )
-
-    def collect_hosts(self):
+    def _collect_hosts(self):
         self._connection.search(
             f'cn=computers,cn=accounts,{self._dc}',
             '(fqdn=*)',
             LEVEL, attributes=ALL_ATTRIBUTES
         )
-        return self._collect_ipa_objects(
-            'IPAHost',
-            'fqdn',
-            'fqdn',
-            lambda edge: edge['target']['type'] == 'IPAHostGroup'
-            and edge['target']['uid'] == 'ipaservers'
-        )
-
-    def collect_groups(self):
-        return self._collect_usergroups() + self._collect_hostgroups() + self._collect_netgroups()
+        return self._connection.entries
 
     def _collect_usergroups(self):
         self._connection.search(
@@ -103,13 +89,7 @@ class FreeIPALDAP(FreeIPA):
             '(cn=*)',
             LEVEL, attributes=ALL_ATTRIBUTES
         )
-        return self._collect_ipa_objects(
-            'IPAUserGroup',
-            'cn',
-            'cn',
-            lambda edge: edge['target']['type'] == 'IPAUserGroup'
-            and edge['target']['uid'] in ['admins', 'trust admins']
-        )
+        return self._connection.entries
 
     def _collect_hostgroups(self):
         self._connection.search(
@@ -117,41 +97,23 @@ class FreeIPALDAP(FreeIPA):
             '(cn=*)',
             LEVEL, attributes=ALL_ATTRIBUTES
         )
-        return self._collect_ipa_objects(
-            'IPAHostGroup',
-            'cn',
-            'cn',
-            lambda edge: edge['target']['type'] == 'IPAHostGroup'
-            and edge['target']['uid'] == 'ipaservers'
-        )
+        return self._connection.entries
 
     def _collect_netgroups(self):
-        self._connection.search(
-            f'cn=ng,cn=alt,{self._dc}',
-            '(&(ipaUniqueID=*)(!(mepManagedBy=*)))',
-            LEVEL, attributes=ALL_ATTRIBUTES
-        )
-        ipaUniqueID = self._collect_ipa_objects(
-            'IPANetGroup',
-            'cn',
-            'ipaUniqueID',
-            lambda edge: False
-        )
         self._connection.search(
             f'cn=ng,cn=alt,{self._dc}',
             '(&(ipaUniqueID=*)(mepManagedBy=*))',
             LEVEL, attributes=ALL_ATTRIBUTES
         )
-        cn = self._collect_ipa_objects(
-            'IPANetGroup',
-            'cn',
-            'cn',
-            lambda edge: False
-        )
-        return ipaUniqueID + cn
+        return self._connection.entries
 
-    def collect_sudo(self):
-        return self._collect_sudocmd() + self._collect_sudogroups() + self._collect_sudorule()
+    def _collect_admin_netgroups(self):
+        self._connection.search(
+            f'cn=ng,cn=alt,{self._dc}',
+            '(&(ipaUniqueID=*)(!(mepManagedBy=*)))',
+            LEVEL, attributes=ALL_ATTRIBUTES
+        )
+        return self._connection.entries
 
     def _collect_sudocmd(self):
         self._connection.search(
@@ -159,26 +121,15 @@ class FreeIPALDAP(FreeIPA):
             '(ipaUniqueID=*)',
             LEVEL, attributes=ALL_ATTRIBUTES
         )
-        return self._collect_ipa_objects(
-            'IPASudo',
-            'sudoCmd',
-            'ipaUniqueID',
-            lambda edge: False
-        )
+        return self._connection.entries
 
     def _collect_sudogroups(self):
-
         self._connection.search(
             f'cn=sudocmdgroups,cn=sudo,{self._dc}',
             '(cn=*)',
             LEVEL, attributes=ALL_ATTRIBUTES
         )
-        return self._collect_ipa_objects(
-            'IPASudoGroup',
-            'cn',
-            'cn',
-            lambda edge: False
-        )
+        return self._connection.entries
 
     def _collect_sudorule(self):
         self._connection.search(
@@ -186,85 +137,39 @@ class FreeIPALDAP(FreeIPA):
             '(ipaUniqueID=*)',
             LEVEL, attributes=ALL_ATTRIBUTES
         )
-        sudo_rules = self._collect_ipa_objects(
-            'IPASudoRule',
-            'cn',
-            'ipaUniqueID',
-            lambda edge: False
-        )
-        for sudo in sudo_rules:
-            run_as_objects = sudo['Properties'].get('ipaSudoRunAs', [])
-            if type(run_as_objects) is not list:
-                run_as_objects = [run_as_objects]
-            for run_as_object in run_as_objects:
-                _run_as_object = self._convert(run_as_object)
-                if (_run_as_object['type'] == 'IPAUser' and _run_as_object['value'] == 'admin') or (
-                        _run_as_object['type'] == 'IPAUserGroup'
-                        and _run_as_object['value'] in ['trust admins', 'admins']
-                ):
-                    sudo['Properties']['highvalue'] = True
-        return sudo_rules
+        return self._connection.entries
 
-    def collect_privileges(self):
+    def _collect_privileges(self):
         self._connection.search(
             f'cn=privileges,cn=pbac,{self._dc}',
             '(cn=*)',
             LEVEL, attributes=ALL_ATTRIBUTES
         )
-        privileges = self._collect_ipa_objects(
-            'IPAPrivilege',
-            'cn',
-            'cn',
-            lambda edge: False
-        )
-        for privilege in privileges:
-            privilege['Properties']['objectClass'.lower()].append('ipaprivilege')
-        return privileges
+        return self._connection.entries
 
-    def collect_permissions(self):
+    def _collect_permissions(self):
         self._connection.search(
             f'cn=permissions,cn=pbac,{self._dc}',
             '(cn=*)',
             LEVEL, attributes=ALL_ATTRIBUTES
         )
-        return self._collect_ipa_objects(
-            'IPAPermission',
-            'cn',
-            'cn',
-            lambda edge: False
-        )
+        return self._connection.entries
 
-    def collect_roles(self):
+    def _collect_roles(self):
         self._connection.search(
             f'cn=roles,cn=accounts,{self._dc}',
             '(cn=*)',
             LEVEL, attributes=ALL_ATTRIBUTES
         )
-        ipa_roles = self._collect_ipa_objects(
-            'IPARole',
-            'cn',
-            'cn',
-            lambda edge: False
-        )
-        for ipa_role in ipa_roles:
-            ipa_role['Properties']['objectClass'.lower()].append('iparole')
-        return ipa_roles
+        return self._connection.entries
 
-    def collect_services(self):
+    def _collect_services(self):
         self._connection.search(
             f'cn=services,cn=accounts,{self._dc}',
             '(krbprincipalname=*)',
             LEVEL, attributes=ALL_ATTRIBUTES
         )
-        return self._collect_ipa_objects(
-            'IPAService',
-            'krbPrincipalName',
-            'krbprincipalname',
-            lambda edge: False
-        )
-
-    def collect_hbac(self):
-        return self._collect_hbacservicegroups() + self._collect_hbacservices() + self._collect_hbacrule()
+        return self._connection.entries
 
     def _collect_hbacservicegroups(self):
         self._connection.search(
@@ -272,12 +177,7 @@ class FreeIPALDAP(FreeIPA):
             '(cn=*)',
             LEVEL, attributes=ALL_ATTRIBUTES
         )
-        return self._collect_ipa_objects(
-            'IPAHBACServiceGroup',
-            'cn',
-            'cn',
-            lambda edge: False
-        )
+        return self._connection.entries
 
     def _collect_hbacservices(self):
         self._connection.search(
@@ -285,12 +185,7 @@ class FreeIPALDAP(FreeIPA):
             '(cn=*)',
             LEVEL, attributes=ALL_ATTRIBUTES
         )
-        return self._collect_ipa_objects(
-            'IPAHBACService',
-            'cn',
-            'cn',
-            lambda edge: False
-        )
+        return self._connection.entries
 
     def _collect_hbacrule(self):
         self._connection.search(
@@ -298,14 +193,9 @@ class FreeIPALDAP(FreeIPA):
             '(ipaUniqueID=*)', LEVEL,
             attributes=ALL_ATTRIBUTES
         )
-        return self._collect_ipa_objects(
-            'IPAHBACRule',
-            'cn',
-            'ipaUniqueID',
-            lambda edge: False
-        )
+        return self._connection.entries
 
-    def _collect_ipa_objects(self, object_type: str, name: str, object_id: str, highvalue_func):
+    def _collect_ipa_objects(self, raw_data: list, object_type: str, name: str, object_id: str, highvalue_func):
         edge_rules = {
             'member': lambda uid, other, other_type: {
                 'source': {'type': other_type, 'uid': other},
@@ -359,7 +249,7 @@ class FreeIPALDAP(FreeIPA):
             }
         }
         ipa_objects = []
-        for data in self._connection.entries:
+        for data in raw_data:
             ipa_object, edges = dict(), list()
             for attribute in data.entry_attributes:
                 if attribute in edge_rules.keys():
@@ -372,7 +262,7 @@ class FreeIPALDAP(FreeIPA):
                         except KeyError:
                             self._logger.warning(f'Skip {member} in {attribute} on {object_type}')
                 elif attribute == 'krbExtraData':
-                    ipa_object['krbExtraData'] = data['krbExtraData'].value.decode('utf-8', errors='ignore')
+                    ipa_object['krbExtraData'.lower()] = data['krbExtraData'].value.decode('utf-8', errors='ignore')
                 else:
                     if len(data[attribute].values) > 1:
                         ipa_object[attribute.lower()] = list(map(
@@ -408,13 +298,3 @@ class FreeIPALDAP(FreeIPA):
                 current = LDAP_TREE[value]
         return {'type': current['type'], 'value': path[-1].split('=')[1]}
 
-    @staticmethod
-    def _edge(first_type: str, second_type: str):
-        is_acl = ['IPARole', 'IPAPermission', 'IPAPrivilege']
-        if second_type == 'IPAHBACRule':
-            if first_type in ['IPAUser', 'IPAUserGroup', 'IPAHost', 'IPAHostGroup']:
-                return {'type': 'IPAHBACRuleTo', 'properties': {'isacl': True}}
-        if second_type == 'IPASudoRule':
-            if first_type in ['IPAUser', 'IPAUserGroup', 'IPAHost', 'IPAHostGroup']:
-                return {'type': 'IPASudoRuleTo', 'properties': {'isacl': True}}
-        return {'type': 'IPAMemberOf', 'properties': {'isacl': second_type in is_acl}}
