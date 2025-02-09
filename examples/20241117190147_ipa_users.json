@@ -14,56 +14,32 @@
           "ipaSshGroupOfPubKeys",
           "ipaNTUserAttrs"
         ],
-        "cn": [
-          "Administrator"
-        ],
-        "gecos": [
-          "Administrator"
-        ],
-        "ipauniqueid": [
-          "7b460472-872c-11ef-9f27-000c290709d1"
-        ],
-        "ipantsecurityidentifier": [
-          "S-1-5-21-1095401018-412189053-1189684026-500"
-        ],
+        "cn": "Administrator",
+        "gecos": "Administrator",
+        "ipauniqueid": "7b460472-872c-11ef-9f27-000c290709d1",
+        "ipantsecurityidentifier": "S-1-5-21-1095401018-412189053-1189684026-500",
         "krblastpwdchange": "20250123155752Z",
         "krbpasswordexpiration": "20250423155752Z",
         "krblastadminunlock": "20241010173138Z",
-        "krbextradata": [
-          "\u0000\u0002\u0000ggadmin@DOMAIN.LOCAL\u0000"
-        ],
-        "krbloginfailedcount": [
-          "0"
-        ],
+        "krbextradata": "\u0000\u0002\u0000ggadmin@DOMAIN.LOCAL\u0000",
+        "krbloginfailedcount": "0",
         "krblastfailedauth": "20241211192123Z",
-        "nsaccountlock": false,
-        "gidnumber": [
-          "1539800000"
-        ],
         "krbprincipalname": [
           "admin@DOMAIN.LOCAL",
           "root@DOMAIN.LOCAL"
         ],
-        "loginshell": [
-          "/bin/bash"
-        ],
-        "homedirectory": [
-          "/home/admin"
-        ],
-        "uidnumber": [
-          "1539800000"
-        ],
-        "sn": [
-          "Administrator"
-        ],
-        "uid": [
-          "admin"
-        ],
+        "loginshell": "/bin/bash",
+        "sn": "Administrator",
+        "uidnumber": "1539800000",
+        "nsaccountlock": false,
+        "gidnumber": "1539800000",
+        "uid": "admin",
+        "homedirectory": "/home/admin",
         "preserved": false,
         "dn": "uid=admin,cn=users,cn=accounts,dc=domain,dc=local",
-        "highvalue": true,
         "name": "admin",
-        "object_id": "admin"
+        "object_id": "admin",
+        "highvalue": true
       },
       "Edges": [
         {
@@ -134,21 +110,11 @@
     },
     {
       "Properties": {
-        "cn": [
-          "user-name user-sername"
-        ],
-        "displayname": [
-          "user-name user-sername"
-        ],
-        "initials": [
-          "uu"
-        ],
-        "gecos": [
-          "user-name user-sername"
-        ],
-        "userclass": [
-          "user-1"
-        ],
+        "cn": "user-name user-sername",
+        "displayname": "user-name user-sername",
+        "initials": "uu",
+        "gecos": "user-name user-sername",
+        "userclass": "user-1",
         "objectclass": [
           "top",
           "person",
@@ -165,59 +131,28 @@
           "mepOriginEntry",
           "ipantuserattrs"
         ],
-        "ipauniqueid": [
-          "61660194-8f04-11ef-87ff-000c290709d1"
-        ],
+        "ipauniqueid": "61660194-8f04-11ef-87ff-000c290709d1",
         "krbpasswordexpiration": "20241020165723Z",
         "krblastpwdchange": "20241020165723Z",
-        "krbextradata": [
-          "\u0000\u0002s6\u0015groot/admin@DOMAIN.LOCAL\u0000"
-        ],
-        "mepmanagedentry": [
-          "cn=user-1,cn=groups,cn=accounts,dc=domain,dc=local"
-        ],
-        "ipantsecurityidentifier": [
-          "S-1-5-21-1095401018-412189053-1189684026-1003"
-        ],
-        "givenname": [
-          "user-name"
-        ],
-        "mail": [
-          "user-1@domain.local"
-        ],
-        "gidnumber": [
-          "1539800003"
-        ],
-        "krbprincipalname": [
-          "user-1@DOMAIN.LOCAL"
-        ],
-        "loginshell": [
-          "/bin/sh"
-        ],
-        "krbcanonicalname": [
-          "user-1@DOMAIN.LOCAL"
-        ],
-        "homedirectory": [
-          "/home/user-1"
-        ],
-        "uidnumber": [
-          "1539800003"
-        ],
-        "sn": [
-          "user-sername"
-        ],
-        "uid": [
-          "user-1"
-        ],
+        "krbextradata": "\u0000\u0002s6\u0015groot/admin@DOMAIN.LOCAL\u0000",
+        "mepmanagedentry": "cn=user-1,cn=groups,cn=accounts,dc=domain,dc=local",
+        "ipantsecurityidentifier": "S-1-5-21-1095401018-412189053-1189684026-1003",
+        "krbprincipalname": "user-1@DOMAIN.LOCAL",
+        "loginshell": "/bin/sh",
+        "sn": "user-sername",
+        "uidnumber": "1539800003",
+        "givenname": "user-name",
+        "gidnumber": "1539800003",
+        "mail": "user-1@domain.local",
+        "uid": "user-1",
+        "krbcanonicalname": "user-1@DOMAIN.LOCAL",
+        "homedirectory": "/home/user-1",
         "nsaccountlock": false,
         "preserved": false,
-        "memberof_subid": [
-          "9ea87b29-0844-4363-996a-7b54c5a8d41a"
-        ],
         "dn": "uid=user-1,cn=users,cn=accounts,dc=domain,dc=local",
-        "highvalue": false,
         "name": "user-1",
-        "object_id": "user-1"
+        "object_id": "user-1",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -324,6 +259,22 @@
           "target": {
             "type": "IPANetGroup",
             "uid": "networkgkoup-1"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        },
+        {
+          "source": {
+            "type": "IPAUser",
+            "uid": "user-1"
+          },
+          "target": {
+            "type": "IPASubId",
+            "uid": "9ea87b29-0844-4363-996a-7b54c5a8d41a"
           },
           "edge": {
             "type": "IPAMemberOf",

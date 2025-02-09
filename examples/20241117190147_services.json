@@ -12,36 +12,38 @@
           "krbprincipal"
         ],
         "krblastpwdchange": "20241010173109Z",
-        "krbextradata": [
-          "\u0000\u0002]\u000f\bgcentos/admin@DOMAIN.LOCAL\u0000"
-        ],
-        "krbloginfailedcount": [
-          "0"
-        ],
-        "ipauniqueid": [
-          "700d3084-872d-11ef-b40d-000c290709d1"
-        ],
-        "krbpwdpolicyreference": [
-          "cn=Default Service Password Policy,cn=services,cn=accounts,dc=domain,dc=local"
-        ],
-        "krbcanonicalname": [
-          "DNS/server.domain.local@DOMAIN.LOCAL"
-        ],
-        "krbprincipalname": [
-          "DNS/server.domain.local@DOMAIN.LOCAL"
-        ],
+        "krbextradata": "\u0000\u0002]\u000f\bgcentos/admin@DOMAIN.LOCAL\u0000",
+        "krbloginfailedcount": "0",
+        "ipauniqueid": "700d3084-872d-11ef-b40d-000c290709d1",
+        "krbpwdpolicyreference": "cn=Default Service Password Policy,cn=services,cn=accounts,dc=domain,dc=local",
+        "krbprincipalname": "DNS/server.domain.local@DOMAIN.LOCAL",
+        "krbcanonicalname": "DNS/server.domain.local@DOMAIN.LOCAL",
         "has_keytab": true,
         "ipakrbrequirespreauth": true,
         "ipakrbokasdelegate": false,
         "ipakrboktoauthasdelegate": false,
-        "managedby_host": [
-          "server.domain.local"
-        ],
         "dn": "krbprincipalname=DNS/server.domain.local@DOMAIN.LOCAL,cn=services,cn=accounts,dc=domain,dc=local",
         "name": "DNS/server.domain.local@DOMAIN.LOCAL",
-        "object_id": "DNS/server.domain.local@DOMAIN.LOCAL"
+        "object_id": "DNS/server.domain.local@DOMAIN.LOCAL",
+        "highvalue": false
       },
       "Edges": [
+        {
+          "source": {
+            "type": "IPAHost",
+            "uid": "server.domain.local"
+          },
+          "target": {
+            "type": "IPAService",
+            "uid": "DNS/server.domain.local@DOMAIN.LOCAL"
+          },
+          "edge": {
+            "type": "IPAMemberManager",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
         {
           "source": {
             "type": "IPAService",
@@ -88,28 +90,14 @@
           "ipakrbprincipal",
           "top"
         ],
-        "ipakrbprincipalalias": [
-          "HTTP/server.domain.local@DOMAIN.LOCAL"
-        ],
-        "ipauniqueid": [
-          "5406e5a6-872d-11ef-99a5-000c290709d1"
-        ],
+        "ipakrbprincipalalias": "HTTP/server.domain.local@DOMAIN.LOCAL",
+        "ipauniqueid": "5406e5a6-872d-11ef-99a5-000c290709d1",
         "krblastpwdchange": "20241010173022Z",
-        "krbextradata": [
-          "\u0000\u0002.\u000f\bgHTTP/server.domain.local@DOMAIN.LOCAL\u0000"
-        ],
-        "krbpwdpolicyreference": [
-          "cn=Default Service Password Policy,cn=services,cn=accounts,dc=domain,dc=local"
-        ],
-        "krbcanonicalname": [
-          "HTTP/server.domain.local@DOMAIN.LOCAL"
-        ],
-        "krbprincipalname": [
-          "HTTP/server.domain.local@DOMAIN.LOCAL"
-        ],
-        "usercertificate": [
-          "0\u0005J0\u0003\u0003\u0002\u0001\u0002\u0002\u0001\t0\r\u0006\t*H\r\u0001\u0001\u000b\u0005\u0000071\u00150\u0013\u0006\u0003U\u0004\n\f\fDOMAIN.LOCAL1\u001e0\u001c\u0006\u0003U\u0004\u0003\f\u0015Certificate Authority0\u001e\u0017\r241010173024Z\u0017\r261011173024Z051\u00150\u0013\u0006\u0003U\u0004\n\f\fDOMAIN.LOCAL1\u001c0\u001a\u0006\u0003U\u0004\u0003\f\u0013server.domain.local0\u0001\"0\r\u0006\t*H\r\u0001\u0001\u0001\u0005\u0000\u0003\u0001\u000f\u00000\u0001\n\u0002\u0001\u0001\u0000?M9dhE\t%\r\u0019\u0017kke\u001e\u615anI\u0015\u0018R\u0003,#h\u0006Y\u0007{\u00037G;\u0516u>\\8U-+i $\u0004R)HK\u0007v\u0014\u0007nS||%m\u00117%+`^<3a\u0258[\u001bTa/2eYs(L(]J\u0011A\u0003c-xO\u0017\u0019\u0012DFOY\u001dc$s45\u0004U{\u0003Ou0p\u0007dfE\u000f\u0704\u0014!4>#9CL4\u0007H*\u0703d\u0662NR\u001d\u00162\u0001\u0002\u0003\u0001\u0000\u0001\u00010\u00010\u001f\u0006\u0003U\u001d#\u0004\u00180\u0016\u0014%\u0004\u06c6\u0016a\u0005b^_` i0>\u0006\b+\u0006\u0001\u0005\u0005\u0007\u0001\u0001\u00042000.\u0006\b+\u0006\u0001\u0005\u0005\u00070\u0001\"http://ipa-ca.domain.local/ca/ocsp0\u000e\u0006\u0003U\u001d\u000f\u0001\u0001\u0004\u0004\u0003\u0002\u00040\u001d\u0006\u0003U\u001d%\u0004\u00160\u0014\u0006\b+\u0006\u0001\u0005\u0005\u0007\u0003\u0001\u0006\b+\u0006\u0001\u0005\u0005\u0007\u0003\u00020w\u0006\u0003U\u001d\u001f\u0004p0n0l420http://ipa-ca.domain.local/ipa/crl/MasterCRL.bin42001\u000e0\f\u0006\u0003U\u0004\n\f\u0005ipaca1\u001e0\u001c\u0006\u0003U\u0004\u0003\f\u0015Certificate Authority0\u001d\u0006\u0003U\u001d\u000e\u0004\u0016\u0004\u0014lQ\u000f\u0015A\nuxp][YN<v0\u0006\u0003U\u001d\u0011\u00040\u0013server.domain.local\u0013ipa-ca.domain.local5\u0006\n+\u0006\u0001\u0004\u00017\u0014\u0002\u0003'\f%HTTP/server.domain.local@DOMAIN.LOCALD\u0006\u0006+\u0006\u0001\u0005\u0002\u0002:08\u000e\u001b\fDOMAIN.LOCAL&0$\u0003\u0002\u0001\u0001\u001d0\u001b\u001b\u0004HTTP\u001b\u0013server.domain.local0\r\u0006\t*H\r\u0001\u0001\u000b\u0005\u0000\u0003\u0001\u0000b\u0000br`#\u001e\bcCR\b2\u00128\u000b\u03e5Eva#Hi\u0012@\u0003D2\u0017!5i\u0002\u60fa\u0015Z\u0015N Ta\u01e4z=\u0017nU\u001bK\u0001p:\u000b\u000b\u0018^g<\u0016J/?d\u001540E\u001dIN.|l{{\u0019\u00066\"H\\Xc@xbd\tQ\b\b\u000e\u001f0ZF>6G\u0017@E\u0005\nH\t\u000bXm\u06b2Y$+vq;3a?B\u3216'j8\u0004T\u001fC\u000fl-\u001edx'\u067fH\u000bS\u000b&T1?n<!8\u0003:*;ATS?O\u001a\u000faj\u0013]\u0016\u9c1b\u000b\u0007&j\u0016W\u0582)\u00194\u0011\u0738\u0001nj3nvPd\u0013\u000f`e"
-        ],
+        "krbextradata": "\u0000\u0002.\u000f\bgHTTP/server.domain.local@DOMAIN.LOCAL\u0000",
+        "krbpwdpolicyreference": "cn=Default Service Password Policy,cn=services,cn=accounts,dc=domain,dc=local",
+        "krbprincipalname": "HTTP/server.domain.local@DOMAIN.LOCAL",
+        "krbcanonicalname": "HTTP/server.domain.local@DOMAIN.LOCAL",
+        "usercertificate": "0\u0005J0\u0003\u0003\u0002\u0001\u0002\u0002\u0001\t0\r\u0006\t*H\r\u0001\u0001\u000b\u0005\u0000071\u00150\u0013\u0006\u0003U\u0004\n\f\fDOMAIN.LOCAL1\u001e0\u001c\u0006\u0003U\u0004\u0003\f\u0015Certificate Authority0\u001e\u0017\r241010173024Z\u0017\r261011173024Z051\u00150\u0013\u0006\u0003U\u0004\n\f\fDOMAIN.LOCAL1\u001c0\u001a\u0006\u0003U\u0004\u0003\f\u0013server.domain.local0\u0001\"0\r\u0006\t*H\r\u0001\u0001\u0001\u0005\u0000\u0003\u0001\u000f\u00000\u0001\n\u0002\u0001\u0001\u0000?M9dhE\t%\r\u0019\u0017kke\u001e\u615anI\u0015\u0018R\u0003,#h\u0006Y\u0007{\u00037G;\u0516u>\\8U-+i $\u0004R)HK\u0007v\u0014\u0007nS||%m\u00117%+`^<3a\u0258[\u001bTa/2eYs(L(]J\u0011A\u0003c-xO\u0017\u0019\u0012DFOY\u001dc$s45\u0004U{\u0003Ou0p\u0007dfE\u000f\u0704\u0014!4>#9CL4\u0007H*\u0703d\u0662NR\u001d\u00162\u0001\u0002\u0003\u0001\u0000\u0001\u00010\u00010\u001f\u0006\u0003U\u001d#\u0004\u00180\u0016\u0014%\u0004\u06c6\u0016a\u0005b^_` i0>\u0006\b+\u0006\u0001\u0005\u0005\u0007\u0001\u0001\u00042000.\u0006\b+\u0006\u0001\u0005\u0005\u00070\u0001\"http://ipa-ca.domain.local/ca/ocsp0\u000e\u0006\u0003U\u001d\u000f\u0001\u0001\u0004\u0004\u0003\u0002\u00040\u001d\u0006\u0003U\u001d%\u0004\u00160\u0014\u0006\b+\u0006\u0001\u0005\u0005\u0007\u0003\u0001\u0006\b+\u0006\u0001\u0005\u0005\u0007\u0003\u00020w\u0006\u0003U\u001d\u001f\u0004p0n0l420http://ipa-ca.domain.local/ipa/crl/MasterCRL.bin42001\u000e0\f\u0006\u0003U\u0004\n\f\u0005ipaca1\u001e0\u001c\u0006\u0003U\u0004\u0003\f\u0015Certificate Authority0\u001d\u0006\u0003U\u001d\u000e\u0004\u0016\u0004\u0014lQ\u000f\u0015A\nuxp][YN<v0\u0006\u0003U\u001d\u0011\u00040\u0013server.domain.local\u0013ipa-ca.domain.local5\u0006\n+\u0006\u0001\u0004\u00017\u0014\u0002\u0003'\f%HTTP/server.domain.local@DOMAIN.LOCALD\u0006\u0006+\u0006\u0001\u0005\u0002\u0002:08\u000e\u001b\fDOMAIN.LOCAL&0$\u0003\u0002\u0001\u0001\u001d0\u001b\u001b\u0004HTTP\u001b\u0013server.domain.local0\r\u0006\t*H\r\u0001\u0001\u000b\u0005\u0000\u0003\u0001\u0000b\u0000br`#\u001e\bcCR\b2\u00128\u000b\u03e5Eva#Hi\u0012@\u0003D2\u0017!5i\u0002\u60fa\u0015Z\u0015N Ta\u01e4z=\u0017nU\u001bK\u0001p:\u000b\u000b\u0018^g<\u0016J/?d\u001540E\u001dIN.|l{{\u0019\u00066\"H\\Xc@xbd\tQ\b\b\u000e\u001f0ZF>6G\u0017@E\u0005\nH\t\u000bXm\u06b2Y$+vq;3a?B\u3216'j8\u0004T\u001fC\u000fl-\u001edx'\u067fH\u000bS\u000b&T1?n<!8\u0003:*;ATS?O\u001a\u000faj\u0013]\u0016\u9c1b\u000b\u0007&j\u0016W\u0582)\u00194\u0011\u0738\u0001nj3nvPd\u0013\u000f`e",
         "has_keytab": true,
         "subject": "CN=server.domain.local,O=DOMAIN.LOCAL",
         "serial_number": "9",
@@ -122,14 +110,28 @@
         "ipakrbrequirespreauth": true,
         "ipakrbokasdelegate": false,
         "ipakrboktoauthasdelegate": false,
-        "managedby_host": [
-          "server.domain.local"
-        ],
         "dn": "krbprincipalname=HTTP/server.domain.local@DOMAIN.LOCAL,cn=services,cn=accounts,dc=domain,dc=local",
         "name": "HTTP/server.domain.local@DOMAIN.LOCAL",
-        "object_id": "HTTP/server.domain.local@DOMAIN.LOCAL"
+        "object_id": "HTTP/server.domain.local@DOMAIN.LOCAL",
+        "highvalue": false
       },
       "Edges": [
+        {
+          "source": {
+            "type": "IPAHost",
+            "uid": "server.domain.local"
+          },
+          "target": {
+            "type": "IPAService",
+            "uid": "HTTP/server.domain.local@DOMAIN.LOCAL"
+          },
+          "edge": {
+            "type": "IPAMemberManager",
+            "properties": {
+              "isacl": true
+            }
+          }
+        },
         {
           "source": {
             "type": "IPAService",
@@ -177,39 +179,40 @@
           "ipakrbprincipal"
         ],
         "krblastpwdchange": "20241010172955Z",
-        "krbextradata": [
-          "\u0000\u0002\u0013\u000f\bgcentos/admin@DOMAIN.LOCAL\u0000"
-        ],
-        "ipauniqueid": [
-          "43b72d8c-872d-11ef-b642-000c290709d1"
-        ],
-        "krbloginfailedcount": [
-          "0"
-        ],
-        "ipakrbprincipalalias": [
-          "dogtag/server.domain.local@DOMAIN.LOCAL"
-        ],
-        "krbpwdpolicyreference": [
-          "cn=Default Service Password Policy,cn=services,cn=accounts,dc=domain,dc=local"
-        ],
-        "krbcanonicalname": [
-          "dogtag/server.domain.local@DOMAIN.LOCAL"
-        ],
-        "krbprincipalname": [
-          "dogtag/server.domain.local@DOMAIN.LOCAL"
-        ],
+        "krbextradata": "\u0000\u0002\u0013\u000f\bgcentos/admin@DOMAIN.LOCAL\u0000",
+        "ipauniqueid": "43b72d8c-872d-11ef-b642-000c290709d1",
+        "krbloginfailedcount": "0",
+        "ipakrbprincipalalias": "dogtag/server.domain.local@DOMAIN.LOCAL",
+        "krbpwdpolicyreference": "cn=Default Service Password Policy,cn=services,cn=accounts,dc=domain,dc=local",
+        "krbprincipalname": "dogtag/server.domain.local@DOMAIN.LOCAL",
+        "krbcanonicalname": "dogtag/server.domain.local@DOMAIN.LOCAL",
         "has_keytab": true,
         "ipakrbrequirespreauth": true,
         "ipakrbokasdelegate": false,
         "ipakrboktoauthasdelegate": false,
-        "managedby_host": [
-          "server.domain.local"
-        ],
         "dn": "krbprincipalname=dogtag/server.domain.local@DOMAIN.LOCAL,cn=services,cn=accounts,dc=domain,dc=local",
         "name": "dogtag/server.domain.local@DOMAIN.LOCAL",
-        "object_id": "dogtag/server.domain.local@DOMAIN.LOCAL"
+        "object_id": "dogtag/server.domain.local@DOMAIN.LOCAL",
+        "highvalue": false
       },
-      "Edges": []
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAHost",
+            "uid": "server.domain.local"
+          },
+          "target": {
+            "type": "IPAService",
+            "uid": "dogtag/server.domain.local@DOMAIN.LOCAL"
+          },
+          "edge": {
+            "type": "IPAMemberManager",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
     },
     {
       "Properties": {
@@ -223,36 +226,39 @@
           "krbprincipal"
         ],
         "krblastpwdchange": "20241010173126Z",
-        "krbextradata": [
-          "\u0000\u0002n\u000f\bgcentos/admin@DOMAIN.LOCAL\u0000"
-        ],
-        "krbloginfailedcount": [
-          "0"
-        ],
-        "ipauniqueid": [
-          "7a12efa6-872d-11ef-9157-000c290709d1"
-        ],
-        "krbpwdpolicyreference": [
-          "cn=Default Service Password Policy,cn=services,cn=accounts,dc=domain,dc=local"
-        ],
-        "krbcanonicalname": [
-          "ipa-dnskeysyncd/server.domain.local@DOMAIN.LOCAL"
-        ],
-        "krbprincipalname": [
-          "ipa-dnskeysyncd/server.domain.local@DOMAIN.LOCAL"
-        ],
+        "krbextradata": "\u0000\u0002n\u000f\bgcentos/admin@DOMAIN.LOCAL\u0000",
+        "krbloginfailedcount": "0",
+        "ipauniqueid": "7a12efa6-872d-11ef-9157-000c290709d1",
+        "krbpwdpolicyreference": "cn=Default Service Password Policy,cn=services,cn=accounts,dc=domain,dc=local",
+        "krbprincipalname": "ipa-dnskeysyncd/server.domain.local@DOMAIN.LOCAL",
+        "krbcanonicalname": "ipa-dnskeysyncd/server.domain.local@DOMAIN.LOCAL",
         "has_keytab": true,
         "ipakrbrequirespreauth": true,
         "ipakrbokasdelegate": false,
         "ipakrboktoauthasdelegate": false,
-        "managedby_host": [
-          "server.domain.local"
-        ],
         "dn": "krbprincipalname=ipa-dnskeysyncd/server.domain.local@DOMAIN.LOCAL,cn=services,cn=accounts,dc=domain,dc=local",
         "name": "ipa-dnskeysyncd/server.domain.local@DOMAIN.LOCAL",
-        "object_id": "ipa-dnskeysyncd/server.domain.local@DOMAIN.LOCAL"
+        "object_id": "ipa-dnskeysyncd/server.domain.local@DOMAIN.LOCAL",
+        "highvalue": false
       },
-      "Edges": []
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAHost",
+            "uid": "server.domain.local"
+          },
+          "target": {
+            "type": "IPAService",
+            "uid": "ipa-dnskeysyncd/server.domain.local@DOMAIN.LOCAL"
+          },
+          "edge": {
+            "type": "IPAMemberManager",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
     },
     {
       "Properties": {
@@ -267,30 +273,14 @@
           "ipakrbprincipal"
         ],
         "krblastpwdchange": "20241010172425Z",
-        "krbextradata": [
-          "\u0000\u0002\r\bgcentos/admin@DOMAIN.LOCAL\u0000"
-        ],
-        "ipauniqueid": [
-          "7f0a4a50-872c-11ef-a240-000c290709d1"
-        ],
-        "krbloginfailedcount": [
-          "0"
-        ],
-        "ipakrbprincipalalias": [
-          "ldap/server.domain.local@DOMAIN.LOCAL"
-        ],
-        "krbpwdpolicyreference": [
-          "cn=Default Service Password Policy,cn=services,cn=accounts,dc=domain,dc=local"
-        ],
-        "krbcanonicalname": [
-          "ldap/server.domain.local@DOMAIN.LOCAL"
-        ],
-        "krbprincipalname": [
-          "ldap/server.domain.local@DOMAIN.LOCAL"
-        ],
-        "usercertificate": [
-          "0\u000550\u0003\u0003\u0002\u0001\u0002\u0002\u0001\b0\r\u0006\t*H\r\u0001\u0001\u000b\u0005\u0000071\u00150\u0013\u0006\u0003U\u0004\n\f\fDOMAIN.LOCAL1\u001e0\u001c\u0006\u0003U\u0004\u0003\f\u0015Certificate Authority0\u001e\u0017\r241010172940Z\u0017\r261011172940Z051\u00150\u0013\u0006\u0003U\u0004\n\f\fDOMAIN.LOCAL1\u001c0\u001a\u0006\u0003U\u0004\u0003\f\u0013server.domain.local0\u0001\"0\r\u0006\t*H\r\u0001\u0001\u0001\u0005\u0000\u0003\u0001\u000f\u00000\u0001\n\u0002\u0001\u0001\u0000\u0010tB\u001d\u0004>x\u0001c\u04f3\u001c\u0017\u5e3f\u0634\\\u0019q~t\u0007\u0005>/{q\u00156g\u0018Q$~F+^|\u00144\u001e\fr\u0209t&F\u0121!o8Z0\u03d4\u00028)nnud\u0657?\u000b\n\u0007y-w~irw$I\u03d813\u0005B\u06a9EB&OLn\u0019@\u0019&&0\u04b4P=U\u001fA$\u0005-o'\b\u0006),s\u001d\u0010^N\u001f\u000b=<u7Imf<'@G0fh&}Yv-\u0002\u0003\u0001\u0000\u0001\u00010\u00010\u001f\u0006\u0003U\u001d#\u0004\u00180\u0016\u0014%\u0004\u06c6\u0016a\u0005b^_` i0>\u0006\b+\u0006\u0001\u0005\u0005\u0007\u0001\u0001\u00042000.\u0006\b+\u0006\u0001\u0005\u0005\u00070\u0001\"http://ipa-ca.domain.local/ca/ocsp0\u000e\u0006\u0003U\u001d\u000f\u0001\u0001\u0004\u0004\u0003\u0002\u00040\u001d\u0006\u0003U\u001d%\u0004\u00160\u0014\u0006\b+\u0006\u0001\u0005\u0005\u0007\u0003\u0001\u0006\b+\u0006\u0001\u0005\u0005\u0007\u0003\u00020w\u0006\u0003U\u001d\u001f\u0004p0n0l420http://ipa-ca.domain.local/ipa/crl/MasterCRL.bin42001\u000e0\f\u0006\u0003U\u0004\n\f\u0005ipaca1\u001e0\u001c\u0006\u0003U\u0004\u0003\f\u0015Certificate Authority0\u001d\u0006\u0003U\u001d\u000e\u0004\u0016\u0004\u0014X\u0010v-\u000b\u0005\u000b?\u0012\f0\u0006\u0003U\u001d\u0011\u00040\u0013server.domain.local5\u0006\n+\u0006\u0001\u0004\u00017\u0014\u0002\u0003'\f%ldap/server.domain.local@DOMAIN.LOCALD\u0006\u0006+\u0006\u0001\u0005\u0002\u0002:08\u000e\u001b\fDOMAIN.LOCAL&0$\u0003\u0002\u0001\u0001\u001d0\u001b\u001b\u0004ldap\u001b\u0013server.domain.local0\r\u0006\t*H\r\u0001\u0001\u000b\u0005\u0000\u0003\u0001\u0000kzww9\u001duRcH\u0307D+.`$\u0004\u001d\u000e<6\u0013o\u04f7\u0011X\u0012<1+\u001fx\u001b-\u001ee,o%!k&\u0018@\u0004\\\nB'b;\u0001(\u0597Z'{\u025d\u00113\u001e\b\\\u0006Qd3\u0006\u001d\u0019%\u0010D\\\r+QQSZ\n[\u001c*Tx\u07b5Y\u0556\td2\u0016s\u00051\"\"\u001aK<]j}\u0223TwI\nCvDwF\u001c\u0004DD~!!fr\u0015W{)\u0526\njhkx\u0000)gXHj\u000b\u001d{B\u0019\\#'u^\\SznK\u007ff9O>q\u0003Muw-Y\u0000\u0001wT_\bZh\u0016\u0000\u0004$\u0019\u0015n @d\u0003:gBb\u020faWM\rM\u0000{M(\ue6feE\u00125i\u0001Zrbbp j\u0007]|\u0000"
-        ],
+        "krbextradata": "\u0000\u0002\r\bgcentos/admin@DOMAIN.LOCAL\u0000",
+        "ipauniqueid": "7f0a4a50-872c-11ef-a240-000c290709d1",
+        "krbloginfailedcount": "0",
+        "ipakrbprincipalalias": "ldap/server.domain.local@DOMAIN.LOCAL",
+        "krbpwdpolicyreference": "cn=Default Service Password Policy,cn=services,cn=accounts,dc=domain,dc=local",
+        "krbprincipalname": "ldap/server.domain.local@DOMAIN.LOCAL",
+        "krbcanonicalname": "ldap/server.domain.local@DOMAIN.LOCAL",
+        "usercertificate": "0\u000550\u0003\u0003\u0002\u0001\u0002\u0002\u0001\b0\r\u0006\t*H\r\u0001\u0001\u000b\u0005\u0000071\u00150\u0013\u0006\u0003U\u0004\n\f\fDOMAIN.LOCAL1\u001e0\u001c\u0006\u0003U\u0004\u0003\f\u0015Certificate Authority0\u001e\u0017\r241010172940Z\u0017\r261011172940Z051\u00150\u0013\u0006\u0003U\u0004\n\f\fDOMAIN.LOCAL1\u001c0\u001a\u0006\u0003U\u0004\u0003\f\u0013server.domain.local0\u0001\"0\r\u0006\t*H\r\u0001\u0001\u0001\u0005\u0000\u0003\u0001\u000f\u00000\u0001\n\u0002\u0001\u0001\u0000\u0010tB\u001d\u0004>x\u0001c\u04f3\u001c\u0017\u5e3f\u0634\\\u0019q~t\u0007\u0005>/{q\u00156g\u0018Q$~F+^|\u00144\u001e\fr\u0209t&F\u0121!o8Z0\u03d4\u00028)nnud\u0657?\u000b\n\u0007y-w~irw$I\u03d813\u0005B\u06a9EB&OLn\u0019@\u0019&&0\u04b4P=U\u001fA$\u0005-o'\b\u0006),s\u001d\u0010^N\u001f\u000b=<u7Imf<'@G0fh&}Yv-\u0002\u0003\u0001\u0000\u0001\u00010\u00010\u001f\u0006\u0003U\u001d#\u0004\u00180\u0016\u0014%\u0004\u06c6\u0016a\u0005b^_` i0>\u0006\b+\u0006\u0001\u0005\u0005\u0007\u0001\u0001\u00042000.\u0006\b+\u0006\u0001\u0005\u0005\u00070\u0001\"http://ipa-ca.domain.local/ca/ocsp0\u000e\u0006\u0003U\u001d\u000f\u0001\u0001\u0004\u0004\u0003\u0002\u00040\u001d\u0006\u0003U\u001d%\u0004\u00160\u0014\u0006\b+\u0006\u0001\u0005\u0005\u0007\u0003\u0001\u0006\b+\u0006\u0001\u0005\u0005\u0007\u0003\u00020w\u0006\u0003U\u001d\u001f\u0004p0n0l420http://ipa-ca.domain.local/ipa/crl/MasterCRL.bin42001\u000e0\f\u0006\u0003U\u0004\n\f\u0005ipaca1\u001e0\u001c\u0006\u0003U\u0004\u0003\f\u0015Certificate Authority0\u001d\u0006\u0003U\u001d\u000e\u0004\u0016\u0004\u0014X\u0010v-\u000b\u0005\u000b?\u0012\f0\u0006\u0003U\u001d\u0011\u00040\u0013server.domain.local5\u0006\n+\u0006\u0001\u0004\u00017\u0014\u0002\u0003'\f%ldap/server.domain.local@DOMAIN.LOCALD\u0006\u0006+\u0006\u0001\u0005\u0002\u0002:08\u000e\u001b\fDOMAIN.LOCAL&0$\u0003\u0002\u0001\u0001\u001d0\u001b\u001b\u0004ldap\u001b\u0013server.domain.local0\r\u0006\t*H\r\u0001\u0001\u000b\u0005\u0000\u0003\u0001\u0000kzww9\u001duRcH\u0307D+.`$\u0004\u001d\u000e<6\u0013o\u04f7\u0011X\u0012<1+\u001fx\u001b-\u001ee,o%!k&\u0018@\u0004\\\nB'b;\u0001(\u0597Z'{\u025d\u00113\u001e\b\\\u0006Qd3\u0006\u001d\u0019%\u0010D\\\r+QQSZ\n[\u001c*Tx\u07b5Y\u0556\td2\u0016s\u00051\"\"\u001aK<]j}\u0223TwI\nCvDwF\u001c\u0004DD~!!fr\u0015W{)\u0526\njhkx\u0000)gXHj\u000b\u001d{B\u0019\\#'u^\\SznK\u007ff9O>q\u0003Muw-Y\u0000\u0001wT_\bZh\u0016\u0000\u0004$\u0019\u0015n @d\u0003:gBb\u020faWM\rM\u0000{M(\ue6feE\u00125i\u0001Zrbbp j\u0007]|\u0000",
         "has_keytab": true,
         "subject": "CN=server.domain.local,O=DOMAIN.LOCAL",
         "serial_number": "8",
@@ -303,14 +293,29 @@
         "ipakrbrequirespreauth": true,
         "ipakrbokasdelegate": false,
         "ipakrboktoauthasdelegate": false,
-        "managedby_host": [
-          "server.domain.local"
-        ],
         "dn": "krbprincipalname=ldap/server.domain.local@DOMAIN.LOCAL,cn=services,cn=accounts,dc=domain,dc=local",
         "name": "ldap/server.domain.local@DOMAIN.LOCAL",
-        "object_id": "ldap/server.domain.local@DOMAIN.LOCAL"
+        "object_id": "ldap/server.domain.local@DOMAIN.LOCAL",
+        "highvalue": false
       },
-      "Edges": []
+      "Edges": [
+        {
+          "source": {
+            "type": "IPAHost",
+            "uid": "server.domain.local"
+          },
+          "target": {
+            "type": "IPAService",
+            "uid": "ldap/server.domain.local@DOMAIN.LOCAL"
+          },
+          "edge": {
+            "type": "IPAMemberManager",
+            "properties": {
+              "isacl": true
+            }
+          }
+        }
+      ]
     }
   ],
   "meta": {

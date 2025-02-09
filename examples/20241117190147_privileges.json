@@ -8,15 +8,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "System accounts able to access trust information"
-        ],
-        "cn": [
-          "ADTrust Agents"
-        ],
+        "description": "System accounts able to access trust information",
+        "cn": "ADTrust Agents",
         "dn": "cn=ADTrust Agents,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "ADTrust Agents",
-        "object_id": "ADTrust Agents"
+        "object_id": "ADTrust Agents",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -45,15 +42,12 @@
           "top",
           "ipaprivilege"
         ],
-        "description": [
-          "Read Automember definitions"
-        ],
-        "cn": [
-          "Automember Readers"
-        ],
+        "description": "Read Automember definitions",
+        "cn": "Automember Readers",
         "dn": "cn=Automember Readers,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Automember Readers",
-        "object_id": "Automember Readers"
+        "object_id": "Automember Readers",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -98,15 +92,12 @@
           "top",
           "ipaprivilege"
         ],
-        "description": [
-          "Automember Task Administrator"
-        ],
-        "cn": [
-          "Automember Task Administrator"
-        ],
+        "description": "Automember Task Administrator",
+        "cn": "Automember Task Administrator",
         "dn": "cn=Automember Task Administrator,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Automember Task Administrator",
-        "object_id": "Automember Task Administrator"
+        "object_id": "Automember Task Administrator",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -183,15 +174,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Automount Administrators"
-        ],
-        "cn": [
-          "Automount Administrators"
-        ],
+        "description": "Automount Administrators",
+        "cn": "Automount Administrators",
         "dn": "cn=Automount Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Automount Administrators",
-        "object_id": "Automount Administrators"
+        "object_id": "Automount Administrators",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -348,15 +336,12 @@
           "top",
           "ipaprivilege"
         ],
-        "description": [
-          "CA Administrator"
-        ],
-        "cn": [
-          "CA Administrator"
-        ],
+        "description": "CA Administrator",
+        "cn": "CA Administrator",
         "dn": "cn=CA Administrator,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "CA Administrator",
-        "object_id": "CA Administrator"
+        "object_id": "CA Administrator",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -529,15 +514,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Certificate Administrators"
-        ],
-        "cn": [
-          "Certificate Administrators"
-        ],
+        "description": "Certificate Administrators",
+        "cn": "Certificate Administrators",
         "dn": "cn=Certificate Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Certificate Administrators",
-        "object_id": "Certificate Administrators"
+        "object_id": "Certificate Administrators",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -758,15 +740,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Certificate Identity Mapping Administrators"
-        ],
-        "cn": [
-          "Certificate Identity Mapping Administrators"
-        ],
+        "description": "Certificate Identity Mapping Administrators",
+        "cn": "Certificate Identity Mapping Administrators",
         "dn": "cn=Certificate Identity Mapping Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Certificate Identity Mapping Administrators",
-        "object_id": "Certificate Identity Mapping Administrators"
+        "object_id": "Certificate Identity Mapping Administrators",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -859,15 +838,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Role administration"
-        ],
-        "cn": [
-          "Delegation Administrator"
-        ],
+        "description": "Role administration",
+        "cn": "Delegation Administrator",
         "dn": "cn=Delegation Administrator,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Delegation Administrator",
-        "object_id": "Delegation Administrator"
+        "object_id": "Delegation Administrator",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -1024,15 +1000,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "DNS Administrators"
-        ],
-        "cn": [
-          "DNS Administrators"
-        ],
+        "description": "DNS Administrators",
+        "cn": "DNS Administrators",
         "dn": "cn=DNS Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "DNS Administrators",
-        "object_id": "DNS Administrators"
+        "object_id": "DNS Administrators",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -1301,15 +1274,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "DNS Servers"
-        ],
-        "cn": [
-          "DNS Servers"
-        ],
+        "description": "DNS Servers",
+        "cn": "DNS Servers",
         "dn": "cn=DNS Servers,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "DNS Servers",
-        "object_id": "DNS Servers"
+        "object_id": "DNS Servers",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -1466,15 +1436,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "External IdP server Administrators"
-        ],
-        "cn": [
-          "External IdP server Administrators"
-        ],
+        "description": "External IdP server Administrators",
+        "cn": "External IdP server Administrators",
         "dn": "cn=External IdP server Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "External IdP server Administrators",
-        "object_id": "External IdP server Administrators"
+        "object_id": "External IdP server Administrators",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -1551,15 +1518,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Group Administrators"
-        ],
-        "cn": [
-          "Group Administrators"
-        ],
+        "description": "Group Administrators",
+        "cn": "Group Administrators",
         "dn": "cn=Group Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Group Administrators",
-        "object_id": "Group Administrators"
+        "object_id": "Group Administrators",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -1668,15 +1632,12 @@
           "top",
           "ipaprivilege"
         ],
-        "description": [
-          "HBAC Administrator"
-        ],
-        "cn": [
-          "HBAC Administrator"
-        ],
+        "description": "HBAC Administrator",
+        "cn": "HBAC Administrator",
         "dn": "cn=HBAC Administrator,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "HBAC Administrator",
-        "object_id": "HBAC Administrator"
+        "object_id": "HBAC Administrator",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -1849,15 +1810,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Host Administrators"
-        ],
-        "cn": [
-          "Host Administrators"
-        ],
+        "description": "Host Administrators",
+        "cn": "Host Administrators",
         "dn": "cn=Host Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Host Administrators",
-        "object_id": "Host Administrators"
+        "object_id": "Host Administrators",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -2174,15 +2132,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Host Enrollment"
-        ],
-        "cn": [
-          "Host Enrollment"
-        ],
+        "description": "Host Enrollment",
+        "cn": "Host Enrollment",
         "dn": "cn=Host Enrollment,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Host Enrollment",
-        "object_id": "Host Enrollment"
+        "object_id": "Host Enrollment",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -2307,15 +2262,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Host Group Administrators"
-        ],
-        "cn": [
-          "Host Group Administrators"
-        ],
+        "description": "Host Group Administrators",
+        "cn": "Host Group Administrators",
         "dn": "cn=Host Group Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Host Group Administrators",
-        "object_id": "Host Group Administrators"
+        "object_id": "Host Group Administrators",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -2408,15 +2360,12 @@
           "top",
           "ipaprivilege"
         ],
-        "description": [
-          "Read list of IPA masters"
-        ],
-        "cn": [
-          "IPA Masters Readers"
-        ],
+        "description": "Read list of IPA masters",
+        "cn": "IPA Masters Readers",
         "dn": "cn=IPA Masters Readers,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "IPA Masters Readers",
-        "object_id": "IPA Masters Readers"
+        "object_id": "IPA Masters Readers",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -2445,15 +2394,12 @@
           "top",
           "ipaprivilege"
         ],
-        "description": [
-          "Read global and per-user Kerberos ticket policy"
-        ],
-        "cn": [
-          "Kerberos Ticket Policy Readers"
-        ],
+        "description": "Read global and per-user Kerberos ticket policy",
+        "cn": "Kerberos Ticket Policy Readers",
         "dn": "cn=Kerberos Ticket Policy Readers,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Kerberos Ticket Policy Readers",
-        "object_id": "Kerberos Ticket Policy Readers"
+        "object_id": "Kerberos Ticket Policy Readers",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -2498,15 +2444,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Modify Group membership"
-        ],
-        "cn": [
-          "Modify Group membership"
-        ],
+        "description": "Modify Group membership",
+        "cn": "Modify Group membership",
         "dn": "cn=Modify Group membership,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Modify Group membership",
-        "object_id": "Modify Group membership"
+        "object_id": "Modify Group membership",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -2567,15 +2510,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Modify Users and Reset passwords"
-        ],
-        "cn": [
-          "Modify Users and Reset passwords"
-        ],
+        "description": "Modify Users and Reset passwords",
+        "cn": "Modify Users and Reset passwords",
         "dn": "cn=Modify Users and Reset passwords,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Modify Users and Reset passwords",
-        "object_id": "Modify Users and Reset passwords"
+        "object_id": "Modify Users and Reset passwords",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -2668,15 +2608,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Netgroups Administrators"
-        ],
-        "cn": [
-          "Netgroups Administrators"
-        ],
+        "description": "Netgroups Administrators",
+        "cn": "Netgroups Administrators",
         "dn": "cn=Netgroups Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Netgroups Administrators",
-        "object_id": "Netgroups Administrators"
+        "object_id": "Netgroups Administrators",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -2769,15 +2706,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Passkey Administrators"
-        ],
-        "cn": [
-          "Passkey Administrators"
-        ],
+        "description": "Passkey Administrators",
+        "cn": "Passkey Administrators",
         "dn": "cn=Passkey Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Passkey Administrators",
-        "object_id": "Passkey Administrators"
+        "object_id": "Passkey Administrators",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -2822,15 +2756,12 @@
           "top",
           "ipaprivilege"
         ],
-        "description": [
-          "PassSync Service"
-        ],
-        "cn": [
-          "PassSync Service"
-        ],
+        "description": "PassSync Service",
+        "cn": "PassSync Service",
         "dn": "cn=PassSync Service,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "PassSync Service",
-        "object_id": "PassSync Service"
+        "object_id": "PassSync Service",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -2891,15 +2822,12 @@
           "top",
           "ipaprivilege"
         ],
-        "description": [
-          "Password Policy Administrator"
-        ],
-        "cn": [
-          "Password Policy Administrator"
-        ],
+        "description": "Password Policy Administrator",
+        "cn": "Password Policy Administrator",
         "dn": "cn=Password Policy Administrator,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Password Policy Administrator",
-        "object_id": "Password Policy Administrator"
+        "object_id": "Password Policy Administrator",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -3056,15 +2984,12 @@
           "top",
           "ipaprivilege"
         ],
-        "description": [
-          "Read password policies"
-        ],
-        "cn": [
-          "Password Policy Readers"
-        ],
+        "description": "Read password policies",
+        "cn": "Password Policy Readers",
         "dn": "cn=Password Policy Readers,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Password Policy Readers",
-        "object_id": "Password Policy Readers"
+        "object_id": "Password Policy Readers",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -3109,15 +3034,12 @@
           "top",
           "ipaprivilege"
         ],
-        "description": [
-          "Read roles, privileges, permissions and ACIs"
-        ],
-        "cn": [
-          "RBAC Readers"
-        ],
+        "description": "Read roles, privileges, permissions and ACIs",
+        "cn": "RBAC Readers",
         "dn": "cn=RBAC Readers,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "RBAC Readers",
-        "object_id": "RBAC Readers"
+        "object_id": "RBAC Readers",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -3194,15 +3116,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Replication Administrators"
-        ],
-        "cn": [
-          "Replication Administrators"
-        ],
+        "description": "Replication Administrators",
+        "cn": "Replication Administrators",
         "dn": "cn=Replication Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Replication Administrators",
-        "object_id": "Replication Administrators"
+        "object_id": "Replication Administrators",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -3503,15 +3422,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "SELinux User Map Administrators"
-        ],
-        "cn": [
-          "SELinux User Map Administrators"
-        ],
+        "description": "SELinux User Map Administrators",
+        "cn": "SELinux User Map Administrators",
         "dn": "cn=SELinux User Map Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "SELinux User Map Administrators",
-        "object_id": "SELinux User Map Administrators"
+        "object_id": "SELinux User Map Administrators",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -3572,15 +3488,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Service Administrators"
-        ],
-        "cn": [
-          "Service Administrators"
-        ],
+        "description": "Service Administrators",
+        "cn": "Service Administrators",
         "dn": "cn=Service Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Service Administrators",
-        "object_id": "Service Administrators"
+        "object_id": "Service Administrators",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -3801,15 +3714,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Stage User Administrators"
-        ],
-        "cn": [
-          "Stage User Administrators"
-        ],
+        "description": "Stage User Administrators",
+        "cn": "Stage User Administrators",
         "dn": "cn=Stage User Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Stage User Administrators",
-        "object_id": "Stage User Administrators"
+        "object_id": "Stage User Administrators",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -4046,15 +3956,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Stage User Provisioning"
-        ],
-        "cn": [
-          "Stage User Provisioning"
-        ],
+        "description": "Stage User Provisioning",
+        "cn": "Stage User Provisioning",
         "dn": "cn=Stage User Provisioning,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Stage User Provisioning",
-        "object_id": "Stage User Provisioning"
+        "object_id": "Stage User Provisioning",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -4083,15 +3990,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Subordinate ID Administrators"
-        ],
-        "cn": [
-          "Subordinate ID Administrators"
-        ],
+        "description": "Subordinate ID Administrators",
+        "cn": "Subordinate ID Administrators",
         "dn": "cn=Subordinate ID Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Subordinate ID Administrators",
-        "object_id": "Subordinate ID Administrators"
+        "object_id": "Subordinate ID Administrators",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -4136,15 +4040,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Subordinate ID Selfservice User"
-        ],
-        "cn": [
-          "Subordinate ID Selfservice Users"
-        ],
+        "description": "Subordinate ID Selfservice User",
+        "cn": "Subordinate ID Selfservice Users",
         "dn": "cn=Subordinate ID Selfservice Users,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Subordinate ID Selfservice Users",
-        "object_id": "Subordinate ID Selfservice Users"
+        "object_id": "Subordinate ID Selfservice Users",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -4189,15 +4090,12 @@
           "top",
           "ipaprivilege"
         ],
-        "description": [
-          "Sudo Administrator"
-        ],
-        "cn": [
-          "Sudo Administrator"
-        ],
+        "description": "Sudo Administrator",
+        "cn": "Sudo Administrator",
         "dn": "cn=Sudo Administrator,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Sudo Administrator",
-        "object_id": "Sudo Administrator"
+        "object_id": "Sudo Administrator",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -4386,15 +4284,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "User Administrators"
-        ],
-        "cn": [
-          "User Administrators"
-        ],
+        "description": "User Administrators",
+        "cn": "User Administrators",
         "dn": "cn=User Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "User Administrators",
-        "object_id": "User Administrators"
+        "object_id": "User Administrators",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -4647,12 +4542,11 @@
           "top",
           "ipaprivilege"
         ],
-        "cn": [
-          "UsersManagerPrivilege"
-        ],
+        "cn": "UsersManagerPrivilege",
         "dn": "cn=UsersManagerPrivilege,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "UsersManagerPrivilege",
-        "object_id": "UsersManagerPrivilege"
+        "object_id": "UsersManagerPrivilege",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -4697,15 +4591,12 @@
           "top",
           "ipaprivilege"
         ],
-        "description": [
-          "Vault Administrators"
-        ],
-        "cn": [
-          "Vault Administrators"
-        ],
+        "description": "Vault Administrators",
+        "cn": "Vault Administrators",
         "dn": "cn=Vault Administrators,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Vault Administrators",
-        "object_id": "Vault Administrators"
+        "object_id": "Vault Administrators",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -4894,15 +4785,12 @@
           "nestedgroup",
           "ipaprivilege"
         ],
-        "description": [
-          "Write IPA Configuration"
-        ],
-        "cn": [
-          "Write IPA Configuration"
-        ],
+        "description": "Write IPA Configuration",
+        "cn": "Write IPA Configuration",
         "dn": "cn=Write IPA Configuration,cn=privileges,cn=pbac,dc=domain,dc=local",
         "name": "Write IPA Configuration",
-        "object_id": "Write IPA Configuration"
+        "object_id": "Write IPA Configuration",
+        "highvalue": false
       },
       "Edges": [
         {
