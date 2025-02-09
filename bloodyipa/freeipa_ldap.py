@@ -1,4 +1,4 @@
-from bloodyipa import FreeIPA
+from bloodyipa.freeipa import FreeIPA
 from ldap3 import Server, Connection, SIMPLE, ALL, ANONYMOUS, ALL_ATTRIBUTES, LEVEL
 import datetime
 import logging

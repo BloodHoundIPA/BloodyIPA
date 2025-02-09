@@ -4,7 +4,7 @@ from typing import Dict
 from python_freeipa import ClientMeta
 from python_freeipa import exceptions as ipa_exceptions
 from requests import exceptions as requests_exceptions
-from bloodyipa import FreeIPA
+from bloodyipa.freeipa import FreeIPA
 import base64
 import datetime
 

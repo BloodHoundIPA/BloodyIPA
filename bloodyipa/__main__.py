@@ -3,10 +3,13 @@ import datetime
 import time
 import logging
 from logging import Logger
-from bloodyipa import FreeIPAPI, FreeIPA, FreeIPALDAP, VERSION, BANNER
+from bloodyipa.freeipa import FreeIPA
+from bloodyipa.freeipa_ldap import FreeIPALDAP
+from bloodyipa.freeipa_api import FreeIPAPI
 from argparse import Namespace
 import json
 import urllib3
+from bloodyipa.config import VERSION, BANNER
 
 
 def write(data: list, file_name: str, logger: Logger):
