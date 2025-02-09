@@ -67,7 +67,7 @@ class FreeIPAPI(FreeIPA):
     def _collect_users(self):
         return self._client.user_find(o_sizelimit=0).get('result', [])
 
-    def collect_hosts(self):
+    def _collect_hosts(self):
         return self._client.host_find(o_sizelimit=0).get('result', [])
 
     def _collect_usergroups(self):
@@ -88,16 +88,16 @@ class FreeIPAPI(FreeIPA):
     def _collect_sudorule(self):
         return self._client.sudorule_find(o_sizelimit=0).get('result', [])
 
-    def collect_roles(self):
+    def _collect_roles(self):
         return self._client.role_find(o_sizelimit=0).get('result', [])
 
-    def collect_privileges(self):
+    def _collect_privileges(self):
         return self._client.privilege_find(o_sizelimit=0).get('result', [])
 
-    def collect_permissions(self):
+    def _collect_permissions(self):
         return self._client.permission_find(o_sizelimit=0).get('result', [])
 
-    def collect_services(self):
+    def _collect_services(self):
         return self._client.service_find(o_sizelimit=0).get('result', [])
 
     def _collect_hbacservices(self):
@@ -150,10 +150,22 @@ class FreeIPAPI(FreeIPA):
                 'source': {'type': other_type, 'uid': other},
                 'target': {'type': object_type, 'uid': uid},
                 'edge': {'type': 'IPAMemberManager', 'properties': {'isacl': True}}
+            },
+            'managedby': lambda uid, other, other_type: {
+                'source': {'type': other_type, 'uid': other},
+                'target': {'type': object_type, 'uid': uid},
+                'edge': {'type': 'IPAMemberManager', 'properties': {'isacl': True}}
+            },
+            'managing': lambda uid, other, other_type: {
+                'source': {'type': other_type, 'uid': other},
+                'target': {'type': object_type, 'uid': uid},
+                'edge': {'type': 'IPAMemberManager', 'properties': {'isacl': True}}
             }
         }
         ipa_objects = []
         object_id = object_id.lower()
+        if object_type in ['IPASudo', 'IPAHBACRule', 'IPASudoRule']:
+            object_id = name.lower()
         for data in raw_data:
             ipa_object = dict()
             edges = []
