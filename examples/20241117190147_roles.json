@@ -8,15 +8,12 @@
           "top",
           "iparole"
         ],
-        "cn": [
-          "Enrollment Administrator"
-        ],
-        "description": [
-          "Enrollment Administrator responsible for client(host) enrollment"
-        ],
+        "cn": "Enrollment Administrator",
+        "description": "Enrollment Administrator responsible for client(host) enrollment",
         "dn": "cn=Enrollment Administrator,cn=roles,cn=accounts,dc=domain,dc=local",
         "name": "Enrollment Administrator",
-        "object_id": "Enrollment Administrator"
+        "object_id": "Enrollment Administrator",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -61,15 +58,12 @@
           "nestedgroup",
           "iparole"
         ],
-        "cn": [
-          "helpdesk"
-        ],
-        "description": [
-          "Helpdesk"
-        ],
+        "cn": "helpdesk",
+        "description": "Helpdesk",
         "dn": "cn=helpdesk,cn=roles,cn=accounts,dc=domain,dc=local",
         "name": "helpdesk",
-        "object_id": "helpdesk"
+        "object_id": "helpdesk",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -194,15 +188,12 @@
           "top",
           "iparole"
         ],
-        "cn": [
-          "IT Security Specialist"
-        ],
-        "description": [
-          "IT Security Specialist"
-        ],
+        "cn": "IT Security Specialist",
+        "description": "IT Security Specialist",
         "dn": "cn=IT Security Specialist,cn=roles,cn=accounts,dc=domain,dc=local",
         "name": "IT Security Specialist",
-        "object_id": "IT Security Specialist"
+        "object_id": "IT Security Specialist",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -279,15 +270,12 @@
           "top",
           "iparole"
         ],
-        "cn": [
-          "IT Specialist"
-        ],
-        "description": [
-          "IT Specialist"
-        ],
+        "cn": "IT Specialist",
+        "description": "IT Specialist",
         "dn": "cn=IT Specialist,cn=roles,cn=accounts,dc=domain,dc=local",
         "name": "IT Specialist",
-        "object_id": "IT Specialist"
+        "object_id": "IT Specialist",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -364,15 +352,12 @@
           "top",
           "iparole"
         ],
-        "cn": [
-          "Security Architect"
-        ],
-        "description": [
-          "Security Architect"
-        ],
+        "cn": "Security Architect",
+        "description": "Security Architect",
         "dn": "cn=Security Architect,cn=roles,cn=accounts,dc=domain,dc=local",
         "name": "Security Architect",
-        "object_id": "Security Architect"
+        "object_id": "Security Architect",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -449,15 +434,12 @@
           "top",
           "iparole"
         ],
-        "cn": [
-          "Subordinate ID Selfservice User"
-        ],
-        "description": [
-          "User that can self-request subordinate ids"
-        ],
+        "cn": "Subordinate ID Selfservice User",
+        "description": "User that can self-request subordinate ids",
         "dn": "cn=Subordinate ID Selfservice User,cn=roles,cn=accounts,dc=domain,dc=local",
         "name": "Subordinate ID Selfservice User",
-        "object_id": "Subordinate ID Selfservice User"
+        "object_id": "Subordinate ID Selfservice User",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -486,15 +468,12 @@
           "top",
           "iparole"
         ],
-        "cn": [
-          "User Administrator"
-        ],
-        "description": [
-          "Responsible for creating Users and Groups"
-        ],
+        "cn": "User Administrator",
+        "description": "Responsible for creating Users and Groups",
         "dn": "cn=User Administrator,cn=roles,cn=accounts,dc=domain,dc=local",
         "name": "User Administrator",
-        "object_id": "User Administrator"
+        "object_id": "User Administrator",
+        "highvalue": false
       },
       "Edges": [
         {
@@ -587,12 +566,11 @@
           "top",
           "iparole"
         ],
-        "cn": [
-          "UsersManagerRole"
-        ],
+        "cn": "UsersManagerRole",
         "dn": "cn=UsersManagerRole,cn=roles,cn=accounts,dc=domain,dc=local",
         "name": "UsersManagerRole",
-        "object_id": "UsersManagerRole"
+        "object_id": "UsersManagerRole",
+        "highvalue": false
       },
       "Edges": [
         {

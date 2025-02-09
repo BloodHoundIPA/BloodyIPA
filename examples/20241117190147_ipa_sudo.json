@@ -7,11 +7,13 @@
           "ipasudocmd"
         ],
         "ipauniqueid": "ea08c9da-9221-11ef-8eed-000c290709d1",
+        "sudocmd": "/usr/bin/bash",
+        "dn": "ipaUniqueID=ea08c9da-9221-11ef-8eed-000c290709d1,cn=sudocmds,cn=sudo,dc=domain,dc=local",
         "name": "/usr/bin/bash",
         "object_id": "/usr/bin/bash",
-        "description": "-",
         "highvalue": false
-      }
+      },
+      "Edges": []
     },
     {
       "Properties": {
@@ -20,11 +22,31 @@
           "ipasudocmd"
         ],
         "ipauniqueid": "6e6e187a-921c-11ef-ba57-000c290709d1",
+        "sudocmd": "/usr/bin/nano",
+        "description": "Edit text file",
+        "dn": "ipaUniqueID=6e6e187a-921c-11ef-ba57-000c290709d1,cn=sudocmds,cn=sudo,dc=domain,dc=local",
         "name": "/usr/bin/nano",
         "object_id": "/usr/bin/nano",
-        "description": "Edit text file",
         "highvalue": false
-      }
+      },
+      "Edges": [
+        {
+          "source": {
+            "type": "IPASudo",
+            "uid": "/usr/bin/nano"
+          },
+          "target": {
+            "type": "IPASudoGroup",
+            "uid": "nano"
+          },
+          "edge": {
+            "type": "IPAMemberOf",
+            "properties": {
+              "isacl": false
+            }
+          }
+        }
+      ]
     },
     {
       "Properties": {
@@ -35,9 +57,10 @@
           "top"
         ],
         "ipauniqueid": "9a991434-921e-11ef-a0b5-000c290709d1",
+        "cn": "nano",
+        "dn": "cn=nano,cn=sudocmdgroups,cn=sudo,dc=domain,dc=local",
         "name": "nano",
         "object_id": "nano",
-        "description": "-",
         "highvalue": false
       },
       "Edges": [
@@ -66,17 +89,11 @@
           "ipasudorule"
         ],
         "ipauniqueid": "fe5319a8-9f8d-11ef-bc06-000c290709d1",
+        "ipaenabledflag": true,
+        "cn": "Example",
+        "dn": "ipaUniqueID=fe5319a8-9f8d-11ef-bc06-000c290709d1,cn=sudorules,cn=sudo,dc=domain,dc=local",
         "name": "Example",
         "object_id": "Example",
-        "uid": "Example",
-        "description": "-",
-        "ipaenabledflag": true,
-        "sudoorder": "",
-        "ipasudoopt": "",
-        "ipasudorunasgroupcategory": [],
-        "ipasudorunas_user": [],
-        "ipasudorunas_group": [],
-        "ipasudorunasextuser": [],
         "highvalue": false
       },
       "Edges": []
@@ -88,26 +105,18 @@
           "ipasudorule"
         ],
         "ipauniqueid": "d4aa377c-921c-11ef-ba5b-000c290709d1",
+        "ipaenabledflag": true,
+        "ipasudoopt": "!authenticate",
+        "sudoorder": "999",
+        "description": "Description sudo rule nano",
+        "ipasudorunasextuser": "test",
+        "cn": "Nano",
+        "ipasudorunas_group": "admins",
+        "ipasudorunas_user": "admin",
+        "dn": "ipaUniqueID=d4aa377c-921c-11ef-ba5b-000c290709d1,cn=sudorules,cn=sudo,dc=domain,dc=local",
         "name": "Nano",
         "object_id": "Nano",
-        "uid": "Nano",
-        "description": "Description sudo rule nano",
-        "ipaenabledflag": true,
-        "sudoorder": "999",
-        "ipasudoopt": [
-          "!authenticate"
-        ],
-        "ipasudorunasgroupcategory": [],
-        "ipasudorunas_user": [
-          "admin"
-        ],
-        "ipasudorunas_group": [
-          "admins"
-        ],
-        "ipasudorunasextuser": [
-          "test"
-        ],
-        "highvalue": true
+        "highvalue": false
       },
       "Edges": [
         {
