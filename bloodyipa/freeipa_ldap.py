@@ -1,5 +1,5 @@
 from bloodyipa.freeipa import FreeIPA
-from ldap3 import Server, Connection, SIMPLE, ALL, ANONYMOUS, ALL_ATTRIBUTES, LEVEL
+from ldap3 import Server, Connection, SIMPLE, ALL, ANONYMOUS, ALL_ATTRIBUTES, LEVEL, SUBTREE
 import datetime
 import logging
 
@@ -43,8 +43,8 @@ class FreeIPALDAP(FreeIPA):
     _dc: str
 
     def __init__(self, ip: str, dc: str, user: str = None, password: str = None, protocol: str = "ldaps", auth_type: str = "ANONYMOUS"):
-        server = Server(f"{protocol}://{ip}:{'636' if protocol == 'ldaps' else '389'}", get_info=ALL)
-        self._dc = ','.join([f'dc={part}' for part in dc.split('.')])
+        server = Server(f"{protocol}://{ip if ip != None else dc}:{'636' if protocol == 'ldaps' else '389'}", get_info=ALL)
+        self._dc = ','.join([f'dc={part}' for part in dc.split('.')[1:]])
         self._logger = logging.getLogger('ldap')
         if auth_type == 'SIMPLE':
             self._auth_simple(server, user, password)
@@ -54,7 +54,6 @@ class FreeIPALDAP(FreeIPA):
             raise Exception('The authentication method is not supported')
 
     def _auth_simple(self, server: Server, user: str, password: str):
-
         self._connection = Connection(
             server,
             user=f'uid={user},cn=users,cn=accounts,{self._dc}',
@@ -194,6 +193,14 @@ class FreeIPALDAP(FreeIPA):
             attributes=ALL_ATTRIBUTES
         )
         return self._connection.entries
+    
+    def _collect_trusts(self):
+        self._connection.search(
+            f'cn=trusts,{self._dc}',
+            '(objectclass=ipaNTTrustedDomain)',
+            SUBTREE, attributes=ALL_ATTRIBUTES
+        )
+        return self._connection.entries
 
     def _collect_ipa_objects(self, raw_data: list, object_type: str, name: str, object_id: str, highvalue_func):
         edge_rules = {
@@ -246,6 +253,11 @@ class FreeIPALDAP(FreeIPA):
                 'source': {'type': other_type, 'uid': other},
                 'target': {'type': object_type, 'uid': uid},
                 'edge': {'type': 'IPAMemberManager', 'properties': {'isacl': True}}
+            },
+            'ipaNTTrustPartner': lambda uid, other, other_type: {
+                'source': {'type': other_type, 'uid': other},
+                'target': {'type': object_type, 'uid': uid},
+                'edge': {'type': 'IPATrustedBy', 'properties': {'isacl': False}}
             }
         }
         ipa_objects = []
@@ -254,13 +266,20 @@ class FreeIPALDAP(FreeIPA):
             for attribute in data.entry_attributes:
                 if attribute in edge_rules.keys():
                     for member in data[attribute].values:
-                        try:
-                            other_object = self._convert(member)
-                            edges.append(edge_rules[attribute](
-                                data[object_id].value, other_object['value'], other_object['type']
-                            ))
-                        except KeyError:
-                            self._logger.warning(f'Skip {member} in {attribute} on {object_type}')
+                        if attribute=='ipaNTTrustPartner':
+                            if data['ipaNTTrustDirection'].values[0] == 3:
+                                edges.append(edge_rules[attribute](data[object_id].value, '.'.join([i[3:] for i in self._dc.split(',')]), 'IPADomain'))
+                                edges.append(edge_rules[attribute]('.'.join([i[3:] for i in self._dc.split(',')]), data[object_id].value, 'IPADomain'))
+                            elif data['ipaNTTrustDirection'].values[0] == 1:
+                                edges.append(edge_rules[attribute](data[object_id].value, '.'.join([i[3:] for i in self._dc.split(',')]), 'IPADomain'))
+                        else:
+                            try:
+                                other_object = self._convert(member)
+                                edges.append(edge_rules[attribute](
+                                    data[object_id].value, other_object['value'], other_object['type']
+                                ))
+                            except KeyError:
+                                self._logger.warning(f'Skip {member} in {attribute} on {object_type}')
                 elif attribute == 'krbExtraData':
                     ipa_object['krbExtraData'.lower()] = data['krbExtraData'].value.decode('utf-8', errors='ignore')
                 else:

@@ -212,6 +212,18 @@ class FreeIPA(object):
 
     def _collect_ipa_objects(self, raw_data: list, object_type: str, name: str, object_id: str, highvalue_func):
         raise Exception('The method is not implemented')
+    
+    def collect_trusts(self):
+        return self._collect_ipa_objects(
+            self._collect_trusts(),
+            'IPADomain',
+            'cn',
+            'cn',
+            lambda edge: False
+        )
+
+    def _collect_trusts(self):
+        raise Exception('The method is not implemented')
 
     @staticmethod
     def _edge(first_type: str, second_type: str):

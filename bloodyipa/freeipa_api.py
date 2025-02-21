@@ -33,6 +33,7 @@ class FreeIPAPI(FreeIPA):
         'hbacsvcgroup': 'IPAHBACServiceGroup',
         'hbacrule': 'IPAHBACRule',
         'subid': 'IPASubId', #   TODO: add to ui
+        'domain': 'IPADomain',
     }
 
     def __init__(self, auth_type: str, dc: str, username: str, password: str, verify_ssl: bool = False):
@@ -109,6 +110,9 @@ class FreeIPAPI(FreeIPA):
     def _collect_hbacrule(self):
         return self._client.hbacrule_find(o_sizelimit=0).get('result', [])
 
+    def _collect_trusts(self):
+        return self._client.trust_find(o_sizelimit=0).get('result', [])
+
     def _collect_ipa_objects(self, raw_data: list, object_type: str, name: str, object_id: str, highvalue_func):
         edge_rules = {
             'member': lambda uid, other, other_type: {
@@ -160,21 +164,26 @@ class FreeIPAPI(FreeIPA):
                 'source': {'type': other_type, 'uid': other},
                 'target': {'type': object_type, 'uid': uid},
                 'edge': {'type': 'IPAMemberManager', 'properties': {'isacl': True}}
+            },
+            'ipanttrustpartner': lambda uid, other, other_type: {
+                'source': {'type': other_type, 'uid': other},
+                'target': {'type': object_type, 'uid': uid},
+                'edge': {'type': 'IPATrustedBy', 'properties': {'isacl': False}}
             }
         }
         ipa_objects = []
         object_id = object_id.lower()
-        if object_type in ['IPASudo', 'IPAHBACRule', 'IPASudoRule']:
+        if object_type in ('IPASudo', 'IPAHBACRule', 'IPASudoRule'):
             object_id = name.lower()
         for data in raw_data:
             ipa_object = dict()
             edges = []
             for key, value in data.items():
                 key = key.lower()
-                if key in ['krblastpwdchange', 'krbpasswordexpiration', 'krblastadminunlock', 'krblastfailedauth']:
+                if key in ('krblastpwdchange', 'krbpasswordexpiration', 'krblastadminunlock', 'krblastfailedauth'):
                     ipa_object[key] = value[0]['__datetime__']
                     continue
-                elif key in ['krbextradata', 'usercertificate']:
+                elif key in ('krbextradata', 'usercertificate'):
                     ipa_object[key] = base64.b64decode(value[0]['__base64__']).decode('utf-8', errors='ignore')
                     continue
                 elif key.count('_'):
@@ -183,6 +192,12 @@ class FreeIPAPI(FreeIPA):
                         for other_uid in value:
                             edges.append(edge_rules[edge_rule](data[object_id][0], other_uid, self._bh_types[bh_type]))
                         continue
+                elif key=='ipanttrustpartner':
+                    if data['ipanttrustdirection'][0] == '3':
+                        edges.append(edge_rules['ipanttrustpartner'](data[object_id][0], '.'.join(self._dc.split('.')[1:]), self._bh_types['domain']))
+                        edges.append(edge_rules['ipanttrustpartner']('.'.join(self._dc.split('.')[1:]), data[object_id][0], self._bh_types['domain']))
+                    elif data['ipanttrustdirection'][0] == '1':
+                        edges.append(edge_rules['ipanttrustpartner'](data[object_id][0], '.'.join(self._dc.split('.')[1:]), self._bh_types['domain']))
                 if type(value) is not list:
                     value = [value]
                 if len(value) > 1:
