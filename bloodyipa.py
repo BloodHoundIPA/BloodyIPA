@@ -1,4 +1,4 @@
-#! /usr/bin/env python3.9
+#! /usr/bin/env python3
 import re
 import argparse, datetime, time, logging, sys
 from ldap3 import Connection, SIMPLE, ANONYMOUS, SASL
