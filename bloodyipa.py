@@ -116,12 +116,9 @@ def main():
 
     parser = argparse.ArgumentParser(add_help=True, description='FreeIPA python collector', formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('-u', '--username', action='store', help='Domain admin username')
-    parser.add_argument('-k', '--kerberos', action='store_true', help='Use $KRB5CCNAME for auth')
+    parser.add_argument('-k', '--kerberos', action='store_true', help='Use Kerberos for auth')
     parser.add_argument('-p', '--password', action='store', help='Domain admin password')
     parser.add_argument('-dc', '--domain-controller', metavar='HOST', action='store', help='DC hostname')
-    parser.add_argument('-dcip', '--domain-controller-ip', action='store', help='DC ip address')
-    parser.add_argument('-ns', '--name-server', action='store', help='name server')
-    parser.add_argument('-ip', action='store', help='IP address')
     parser.add_argument('-v', action='store_true', help='Enable verbose output')
     parser.add_argument('-use_ldap', action='store_true', help='Collect objects from ldap')
     parser.add_argument('-no_verify_certificate', action='store_false', help='No verify certificate')
