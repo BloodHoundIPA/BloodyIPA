@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import re
 import argparse, datetime, time, logging, sys
-from ldap3 import Connection, SIMPLE, ANONYMOUS, SASL
+from ldap3 import Connection, SIMPLE, ANONYMOUS, SASL, KERBEROS
 from python_freeipa import ClientMeta
 from python_freeipa import exceptions as ipa_exceptions
 from requests import exceptions as requests_exceptions
@@ -76,7 +76,7 @@ class Collector(object):
 
     def ldap_auth(self, username, password):
         if self.kerberos_auth:
-            self.client = Connection(self.dc, authentication=SASL, sasl_mechanism="GSSAPI")
+            self.client = Connection(self.dc, authentication=SASL, sasl_mechanism=KERBEROS)
         elif self.anonymous_collect:
             self.client = Connection(self.dc, authentication=ANONYMOUS,)
         else:
