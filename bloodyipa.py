@@ -90,24 +90,24 @@ class Collector(object):
 
 
     def run(self, timestamp=""):
-        IPAobjectCollector(self.client, self.dc, timestamp, self.logger, 'user', use_ladp=self.use_ldap, dn=f'cn=users,cn=accounts,{self.base_dn}')
-        IPAobjectCollector(self.client, self.dc, timestamp, self.logger, 'host', use_ladp=self.use_ldap, dn=f'cn=computers,cn=accounts,{self.base_dn}', filter='(fqdn=*)')
-        IPAobjectCollector(self.client, self.dc, timestamp, self.logger, 'service', use_ladp=self.use_ldap, dn=f'cn=services,cn=accounts,{self.base_dn}', filter='(krbprincipalname=*)')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'user', use_ladp=self.use_ldap, dn=f'cn=users,cn=accounts,{self.base_dn}')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'host', use_ladp=self.use_ldap, dn=f'cn=computers,cn=accounts,{self.base_dn}', filter='(fqdn=*)')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'service', use_ladp=self.use_ldap, dn=f'cn=services,cn=accounts,{self.base_dn}', filter='(krbprincipalname=*)')
 
-        IPAobjectCollector(self.client, self.dc, timestamp, self.logger, 'group', use_ladp=self.use_ldap, dn=f'cn=groups,cn=accounts,{self.base_dn}')
-        IPAobjectCollector(self.client, self.dc, timestamp, self.logger, 'hostgroup', use_ladp=self.use_ldap, dn=f'cn=hostgroups,cn=accounts,{self.base_dn}')
-        IPAobjectCollector(self.client, self.dc, timestamp, self.logger, 'netgroup', use_ladp=self.use_ldap, dn=f'cn=ng,cn=alt,{self.base_dn}')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'group', use_ladp=self.use_ldap, dn=f'cn=groups,cn=accounts,{self.base_dn}')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'hostgroup', use_ladp=self.use_ldap, dn=f'cn=hostgroups,cn=accounts,{self.base_dn}')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'netgroup', use_ladp=self.use_ldap, dn=f'cn=ng,cn=alt,{self.base_dn}')
 
-        IPAobjectCollector(self.client, self.dc, timestamp, self.logger, 'role', use_ladp=self.use_ldap, dn=f'cn=roles,cn=accounts,{self.base_dn}')
-        IPAobjectCollector(self.client, self.dc, timestamp, self.logger, 'sudorule', use_ladp=self.use_ldap, dn=f'cn=sudorules,cn=sudo,{self.base_dn}')
-        IPAobjectCollector(self.client, self.dc, timestamp, self.logger, 'sudocmd', use_ladp=self.use_ldap, dn=f'cn=sudocmds,cn=sudo,{self.base_dn}')
-        IPAobjectCollector(self.client, self.dc, timestamp, self.logger, 'sudocmdgroup', use_ladp=self.use_ldap, dn=f'cn=sudocmdgroups,cn=sudo,{self.base_dn}')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'role', use_ladp=self.use_ldap, dn=f'cn=roles,cn=accounts,{self.base_dn}')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'sudorule', use_ladp=self.use_ldap, dn=f'cn=sudorules,cn=sudo,{self.base_dn}')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'sudocmd', use_ladp=self.use_ldap, dn=f'cn=sudocmds,cn=sudo,{self.base_dn}')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'sudocmdgroup', use_ladp=self.use_ldap, dn=f'cn=sudocmdgroups,cn=sudo,{self.base_dn}')
 
-        IPAobjectCollector(self.client, self.dc, timestamp, self.logger, 'hbacrule', use_ladp=self.use_ldap, dn=f'cn=hbac,{self.base_dn}')
-        IPAobjectCollector(self.client, self.dc, timestamp, self.logger, 'permission', use_ladp=self.use_ldap, dn=f'cn=permissions,cn=pbac,{self.base_dn}')
-        IPAobjectCollector(self.client, self.dc, timestamp, self.logger, 'privilege', use_ladp=self.use_ldap, dn=f'cn=privileges,cn=pbac,{self.base_dn}')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'hbacrule', use_ladp=self.use_ldap, dn=f'cn=hbac,{self.base_dn}')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'permission', use_ladp=self.use_ldap, dn=f'cn=permissions,cn=pbac,{self.base_dn}')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'privilege', use_ladp=self.use_ldap, dn=f'cn=privileges,cn=pbac,{self.base_dn}')
 
-        IPAobjectCollector(self.client, self.dc, timestamp, self.logger, 'trust', use_ladp=self.use_ldap, dn=f'cn=trusts,{self.base_dn}', filter='(objectclass=ipaNTTrustedDomain)')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'trust', use_ladp=self.use_ldap, dn=f'cn=trusts,{self.base_dn}', filter='(objectclass=ipaNTTrustedDomain)')
 
 
 def main():

@@ -4,14 +4,14 @@ from ldap3 import ALL_ATTRIBUTES, LEVEL
 
 
 class IPAobjectCollector(object):
-    def __init__(self, client, dc, timestamp, logger, ipa_type, use_ladp=False, dn='', filter='(objectclass=*)'):
+    def __init__(self, client, base_dn, timestamp, logger, ipa_type, use_ladp=False, dn='', filter='(objectclass=*)'):
         self.ipa_objects = {'data': [], "meta": {"methods": 0, "type": "freeipa", "count": 0, "version": 6}}
         self.logger = logger
         self.ipa_type = ipa_type
         self.dn = dn
         self.client = client
         self.filter = filter
-        self.base_dn = ','.join([f'DC={i}' for i in dc.split('.')[1:]])
+        self.base_dn = base_dn
         if use_ladp:
             self.collect_from_ldap()
         else:
