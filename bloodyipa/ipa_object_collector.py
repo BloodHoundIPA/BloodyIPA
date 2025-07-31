@@ -59,10 +59,8 @@ class IPAobjectCollector(object):
             elif attribute.startswith('manag'):
                 for member in ipa_object[attribute]:
                     if attribute.startswith('managedby_'):
-                        print(attribute, ipa_object[attribute])
                         edges.append(self.edge_builder('managedby', attribute.split('_')[-1], member, name))
                     elif attribute.startswith('managing_'):
-                        print(attribute, ipa_object[attribute])
                         edges.append(self.edge_builder('managing', attribute.split('_')[-1], member, name))
             else:
                 if not isinstance(ipa_object[attribute], bool):

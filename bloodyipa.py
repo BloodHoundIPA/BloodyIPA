@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import re
 import argparse, datetime, time, logging, sys
-from ldap3 import Connection, SIMPLE, ANONYMOUS, SASL, KERBEROS
+from ldap3 import Server, Connection, SIMPLE, ANONYMOUS, SASL, KERBEROS, ALL
 from python_freeipa import ClientMeta
 from python_freeipa import exceptions as ipa_exceptions
 from requests import exceptions as requests_exceptions
@@ -38,7 +38,7 @@ class CustomFormatter(logging.Formatter):
 class Collector(object):
     def __init__(self, kerberos_auth, dc, username, password, logger, verify_ssl=False, use_ldap=False, anonymous_collect=False):
         self.dc = dc
-        self.base_dn = ','.join([f'DC={i}' for i in dc.split('.')[1:]])
+        self.base_dn = ''
         self.logger = logger
         self.use_ldap = use_ldap
         self.verify_ssl = verify_ssl
@@ -75,6 +75,10 @@ class Collector(object):
 
 
     def ldap_auth(self, username, password):
+        server = Server(self.dc, get_info=ALL)
+        Connection(server, auto_bind=True)
+        self.base_dn = server.info.naming_contexts[0]
+        
         if self.kerberos_auth:
             self.client = Connection(self.dc, authentication=SASL, sasl_mechanism=KERBEROS)
         elif self.anonymous_collect:
@@ -82,6 +86,7 @@ class Collector(object):
         else:
             self.client = Connection(self.dc, user=f'uid={username},cn=users,cn=accounts,{self.base_dn}', password=password, authentication=SIMPLE,)
         self.client.bind()
+        
 
 
     def run(self, timestamp=""):
