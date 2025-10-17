@@ -86,28 +86,55 @@ class Collector(object):
         else:
             self.client = Connection(self.dc, user=f'uid={username},cn=users,cn=accounts,{self.base_dn}', password=password, authentication=SIMPLE,)
         self.client.bind()
-        
 
+    def run_api(self, timestamp=""):
 
-    def run(self, timestamp=""):
-        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'user', use_ladp=self.use_ldap, dn=f'cn=users,cn=accounts,{self.base_dn}')
-        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'host', use_ladp=self.use_ldap, dn=f'cn=computers,cn=accounts,{self.base_dn}', filter='(fqdn=*)')
-        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'service', use_ladp=self.use_ldap, dn=f'cn=services,cn=accounts,{self.base_dn}', filter='(krbprincipalname=*)')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'user', 'uid', 'uid', use_ladp=self.use_ldap, dn=f'cn=users,cn=accounts,{self.base_dn}').create_json(f'{timestamp}_ipa_users.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'host', 'fqdn', 'fqdn', use_ladp=self.use_ldap, dn=f'cn=computers,cn=accounts,{self.base_dn}', filter='(fqdn=*)').create_json(f'{timestamp}_ipa_hosts.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'service', 'krbPrincipalName', 'krbprincipalname', use_ladp=self.use_ldap, dn=f'cn=services,cn=accounts,{self.base_dn}', filter='(krbprincipalname=*)').create_json(f'{timestamp}_ipa_services.json')
 
-        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'group', use_ladp=self.use_ldap, dn=f'cn=groups,cn=accounts,{self.base_dn}')
-        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'hostgroup', use_ladp=self.use_ldap, dn=f'cn=hostgroups,cn=accounts,{self.base_dn}')
-        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'netgroup', use_ladp=self.use_ldap, dn=f'cn=ng,cn=alt,{self.base_dn}')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'group', 'cn', 'cn', use_ladp=self.use_ldap, dn=f'cn=groups,cn=accounts,{self.base_dn}').create_json(f'{timestamp}_ipa_usergroups.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'hostgroup', 'cn', 'cn',use_ladp=self.use_ldap, dn=f'cn=hostgroups,cn=accounts,{self.base_dn}').create_json(f'{timestamp}_ipa_hostgroups.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'netgroup', 'cn', 'cn',use_ladp=self.use_ldap, dn=f'cn=ng,cn=alt,{self.base_dn}').create_json(f'{timestamp}_ipa_netgroups.json')
 
-        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'role', use_ladp=self.use_ldap, dn=f'cn=roles,cn=accounts,{self.base_dn}')
-        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'sudorule', use_ladp=self.use_ldap, dn=f'cn=sudorules,cn=sudo,{self.base_dn}')
-        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'sudocmd', use_ladp=self.use_ldap, dn=f'cn=sudocmds,cn=sudo,{self.base_dn}')
-        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'sudocmdgroup', use_ladp=self.use_ldap, dn=f'cn=sudocmdgroups,cn=sudo,{self.base_dn}')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'sudorule', 'cn', 'cn', use_ladp=self.use_ldap, dn=f'cn=sudorules,cn=sudo,{self.base_dn}').create_json(f'{timestamp}_ipa_sudorules.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'sudocmd', 'sudoCmd', 'sudoCmd', use_ladp=self.use_ldap, dn=f'cn=sudocmds,cn=sudo,{self.base_dn}').create_json(f'{timestamp}_ipa_sudocmds.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'sudocmdgroup', 'cn', 'cn', use_ladp=self.use_ldap, dn=f'cn=sudocmdgroups,cn=sudo,{self.base_dn}').create_json(f'{timestamp}_ipa_sudocmdgroups.json')
 
-        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'hbacrule', use_ladp=self.use_ldap, dn=f'cn=hbac,{self.base_dn}')
-        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'permission', use_ladp=self.use_ldap, dn=f'cn=permissions,cn=pbac,{self.base_dn}')
-        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'privilege', use_ladp=self.use_ldap, dn=f'cn=privileges,cn=pbac,{self.base_dn}')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'hbacrule', 'cn', 'cn', use_ladp=self.use_ldap, dn=f'cn=hbac,{self.base_dn}', filter='(ipaUniqueID=*)').create_json(f'{timestamp}_ipa_hbacrules.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'hbacsvc', 'cn', 'cn', use_ladp=self.use_ldap, dn=f'cn=hbacservices,cn=hbac,{self.base_dn}', filter='(cn=*)').create_json(f'{timestamp}_ipa_hbacsvcs.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'hbacsvcgroup', 'cn', 'cn', use_ladp=self.use_ldap, dn=f'cn=hbacservicegroups,cn=hbac,{self.base_dn}', filter='(cn=*)').create_json(f'{timestamp}_ipa_hbacsvcgroups.json')
 
-        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'trust', use_ladp=self.use_ldap, dn=f'cn=trusts,{self.base_dn}', filter='(objectclass=ipaNTTrustedDomain)')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'role', 'cn', 'cn', use_ladp=self.use_ldap, dn=f'cn=roles,cn=accounts,{self.base_dn}').create_json(f'{timestamp}_ipa_roles.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'permission', 'cn', 'cn',use_ladp=self.use_ldap, dn=f'cn=permissions,cn=pbac,{self.base_dn}').create_json(f'{timestamp}_ipa_permissions.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'privilege', 'cn', 'cn', use_ladp=self.use_ldap, dn=f'cn=privileges,cn=pbac,{self.base_dn}').create_json(f'{timestamp}_ipa_privileges.json')
+
+        # IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'trust', 'cn', 'cn', use_ladp=self.use_ldap, dn=f'cn=trusts,{self.base_dn}', filter='(objectclass=ipaNTTrustedDomain)').create_json(f'{timestamp}_ipa_trusts.json')
+
+    def run_ldap(self, timestamp=""):
+
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'user', 'uid', 'uid', use_ladp=self.use_ldap, dn=f'cn=users,cn=accounts,{self.base_dn}').create_json(f'{timestamp}_ipa_users.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'host', 'fqdn', 'fqdn', use_ladp=self.use_ldap, dn=f'cn=computers,cn=accounts,{self.base_dn}', filter='(fqdn=*)').create_json(f'{timestamp}_ipa_hosts.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'service', 'krbPrincipalName', 'krbprincipalname', use_ladp=self.use_ldap, dn=f'cn=services,cn=accounts,{self.base_dn}', filter='(krbprincipalname=*)').create_json(f'{timestamp}_ipa_services.json')
+
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'group', 'cn', 'cn', use_ladp=self.use_ldap, dn=f'cn=groups,cn=accounts,{self.base_dn}').create_json(f'{timestamp}_ipa_usergroups.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'hostgroup', 'cn', 'cn',use_ladp=self.use_ldap, dn=f'cn=hostgroups,cn=accounts,{self.base_dn}').create_json(f'{timestamp}_ipa_hostgroups.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'netgroup', 'cn', 'ipaUniqueID',use_ladp=self.use_ldap, dn=f'cn=ng,cn=alt,{self.base_dn}', filter='(&(ipaUniqueID=*)(!(mepManagedBy=*)))').create_json(f'{timestamp}_ipa_netgroups_1.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'netgroup', 'cn', 'cn',use_ladp=self.use_ldap, dn=f'cn=ng,cn=alt,{self.base_dn}',filter='(&(ipaUniqueID=*)(mepManagedBy=*))').create_json(f'{timestamp}_ipa_netgroups_2.json')
+
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'sudorule', 'cn', 'ipaUniqueID', use_ladp=self.use_ldap, dn=f'cn=sudorules,cn=sudo,{self.base_dn}').create_json(f'{timestamp}_ipa_sudorules.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'sudocmd', 'sudoCmd', 'ipaUniqueID', use_ladp=self.use_ldap, dn=f'cn=sudocmds,cn=sudo,{self.base_dn}').create_json(f'{timestamp}_ipa_sudocmds.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'sudocmdgroup', 'cn', 'cn', use_ladp=self.use_ldap, dn=f'cn=sudocmdgroups,cn=sudo,{self.base_dn}').create_json(f'{timestamp}_ipa_sudocmdgroups.json')
+
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'hbacrule', 'cn', 'ipaUniqueID', use_ladp=self.use_ldap, dn=f'cn=hbac,{self.base_dn}', filter='(ipaUniqueID=*)').create_json(f'{timestamp}_ipa_hbacrules.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'hbacsvc', 'cn', 'cn', use_ladp=self.use_ldap, dn=f'cn=hbacservices,cn=hbac,{self.base_dn}', filter='(cn=*)').create_json(f'{timestamp}_ipa_hbacsvcs.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'hbacsvcgroup', 'cn', 'cn', use_ladp=self.use_ldap, dn=f'cn=hbacservicegroups,cn=hbac,{self.base_dn}', filter='(cn=*)').create_json(f'{timestamp}_ipa_hbacsvcgroups.json')
+
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'role', 'cn', 'cn', use_ladp=self.use_ldap, dn=f'cn=roles,cn=accounts,{self.base_dn}').create_json(f'{timestamp}_ipa_roles.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'permission', 'cn', 'cn',use_ladp=self.use_ldap, dn=f'cn=permissions,cn=pbac,{self.base_dn}').create_json(f'{timestamp}_ipa_permissions.json')
+        IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'privilege', 'cn', 'cn', use_ladp=self.use_ldap, dn=f'cn=privileges,cn=pbac,{self.base_dn}').create_json(f'{timestamp}_ipa_privileges.json')
+
+        # IPAobjectCollector(self.client, self.base_dn, timestamp, self.logger, 'trust', 'cn', 'cn', use_ladp=self.use_ldap, dn=f'cn=trusts,{self.base_dn}', filter='(objectclass=ipaNTTrustedDomain)').create_json(f'{timestamp}_ipa_trusts.json')
 
 
 def main():
@@ -129,7 +156,6 @@ def main():
     parser.add_argument('-no_verify_certificate', action='store_false', help='No verify certificate')
     args = parser.parse_args()
 
-
     if args.v is True:
         logger.setLevel(logging.DEBUG)
 
@@ -144,7 +170,10 @@ def main():
 
     timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y%m%d%H%M%S')
     collector = Collector(args.kerberos, args.domain_controller, args.username, args.password, logger, verify_ssl=args.no_verify_certificate, use_ldap=args.use_ldap, anonymous_collect=anonymous_collect)
-    collector.run(timestamp=timestamp)
+    if not args.use_ldap:
+        collector.run_api(timestamp=timestamp)
+    else:
+        collector.run_ldap(timestamp=timestamp)
 
 
 if __name__ == '__main__':

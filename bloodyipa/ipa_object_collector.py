@@ -4,10 +4,12 @@ from ldap3 import ALL_ATTRIBUTES, LEVEL
 
 
 class IPAobjectCollector(object):
-    def __init__(self, client, base_dn, timestamp, logger, ipa_type, use_ladp=False, dn='', filter='(objectclass=*)'):
-        self.ipa_objects = {'data': [], "meta": {"methods": 0, "type": "freeipa", "count": 0, "version": 6}}
+    def __init__(self, client, base_dn, timestamp, logger, ipa_type, name, object_id, use_ladp=False, dn='', filter='(objectclass=*)'):
+        self.ipa_objects = {'data': [], "meta": {"methods": 0, "type": f"freeipa_{ipa_type}", "count": 0, "version": 6}}
         self.logger = logger
         self.ipa_type = ipa_type
+        self.name = name
+        self.object_id = object_id
         self.dn = dn
         self.client = client
         self.filter = filter
@@ -16,8 +18,7 @@ class IPAobjectCollector(object):
             self.collect_from_ldap()
         else:
             self.collect_from_api()
-        self.create_json(timestamp)
-
+        # self.create_json(timestamp)
 
     def collect_from_api(self):
         ipa_find = getattr(self.client, f'{self.ipa_type}_find')
@@ -36,24 +37,23 @@ class IPAobjectCollector(object):
     def api_parse_objects(self, ipa_object):
         edges = []
         properties = {}
-        if 'uid' in ipa_object.keys():
-            name = ipa_object['uid'][0]
-        elif 'cn' in ipa_object.keys():
-            name = ipa_object['cn'][0]
-        else:
-            name = ipa_object['ipauniqueid'][0]
-        properties['name'] = name
-        properties['object_id'] = name
+        properties['name'] = ipa_object[self.name.lower()][0]
+        properties['object_id'] = ipa_object[self.object_id.lower()][0]
         properties['highvalue'] = False
+        name = properties['object_id']
         for attribute in ipa_object:
-            if attribute.startswith('member'):
+            if attribute.startswith('member') and not attribute.count("memberofindirect"):
                 for member in ipa_object[attribute]:
                     if attribute.startswith('memberof_'):
                         edges.append(self.edge_builder('memberof', attribute.split('_')[-1], member, name))
                     elif attribute == 'memberof':
                         edges.append(self.edge_builder('memberof', 'group', member, name))
-                    elif attribute.startswith('memberofindirect_'):
-                        edges.append(self.edge_builder('member', attribute.split('_')[-1], member, name))
+                    elif attribute.startswith("membermanager_"):
+                        edges.append(self.edge_builder('membermanager', attribute.split('_')[-1], member, name))
+                    # elif attribute.startswith('memberofindirect_'):
+                    #     edges.append(self.edge_builder('member', attribute.split('_')[-1], member, name))
+                    elif attribute.count("deny") or attribute.count("allow"):
+                        edges.append(self.edge_builder(attribute, attribute.split('_')[-1], member, name))
                     else:
                         edges.append(self.edge_builder('member', attribute.split('_')[-1], member, name))
             elif attribute.startswith('manag'):
@@ -95,60 +95,62 @@ class IPAobjectCollector(object):
 
 
     def ldap_parse_entries(self, entry):
-        member_mapper = {'cn=permissions,cn=pbac': 'permission', 'cn=groups,cn=accounts':'group', 'cn=hostgroups,cn=accounts':'hostgroup', 'cn=ng,cn=alt':'netgroup', 'cn=roles,cn=accounts': 'role', 'cn=sudorules,cn=sudo': 'sudorule', 'cn=sudocmds,cn=sudo': 'sudocmd', 'cn=sudocmdgroups,cn=sudo': 'sudocmdgroup', 'cn=hbac': 'hbacrule', 'cn=privileges,cn=pbac': 'privilege', 'cn=computers,cn=accounts': 'host', 'cn=users,cn=accounts': 'user', 'cn=services,cn=accounts': 'service', 'cn=trusts': 'trust', 'cn=sysaccounts,cn=etc': 'sysaccounts', 'cn=hbacservices,cn=hbac': 'hbacservices', 'cn=hbacservicegroups,cn=hbac': 'hbacservicegroups'}
+        member_mapper = {'cn=permissions,cn=pbac': 'permission', 'cn=groups,cn=accounts':'group', 'cn=hostgroups,cn=accounts':'hostgroup', 'cn=ng,cn=alt':'netgroup', 'cn=roles,cn=accounts': 'role', 'cn=sudorules,cn=sudo': 'sudorule', 'cn=sudocmds,cn=sudo': 'sudocmd', 'cn=sudocmdgroups,cn=sudo': 'sudocmdgroup', 'cn=hbac': 'hbacrule', 'cn=privileges,cn=pbac': 'privilege', 'cn=computers,cn=accounts': 'host', 'cn=users,cn=accounts': 'user', 'cn=services,cn=accounts': 'service', 'cn=trusts': 'trust', 'cn=sysaccounts,cn=etc': 'sysaccounts', 'cn=hbacservices,cn=hbac': 'hbacservices', 'cn=hbacservicegroups,cn=hbac': 'hbacservicegroups', 'cn=subids,cn=accounts': 'subids'}
         edges = []
         properties = {}
-        if 'uid' in entry['attributes'].keys():
-            name = entry['attributes']['uid'][0]
-        elif 'cn' in entry['attributes'].keys():
-            name = entry['attributes']['cn'][0]
-        else:
-            name = entry['attributes']['ipaUniqueID'][0]
-        properties['name'] = name
-        properties['object_id'] = name
+        entry_lower = {'attributes': dict()}
+        for key, value in entry['attributes'].items():
+            entry_lower['attributes'][key.lower()] = value
+        properties['name'] = entry_lower['attributes'][self.name.lower()][0]
+        properties['object_id'] = entry_lower['attributes'][self.object_id.lower()][0]
         properties['highvalue'] = False
-        for attribute in entry['attributes']:
+        name = properties['object_id']
+        for attribute in entry_lower['attributes']:
             if 'manag' in attribute.lower():
-                for member in entry['attributes'][attribute]:
+                for member in entry_lower['attributes'][attribute]:
                     member = member[:-len(self.base_dn)-1]
                     member, path = member.split(',', 1)
                     mapped_type = member_mapper[path]
-                    if attribute == 'mepManagedEntry':
-                        edges.append(self.edge_builder('managing', mapped_type, member.split('=', 1)[-1], name))
-                    elif attribute == 'managedBy':
+                    if attribute == 'managedBy'.lower():
                         edges.append(self.edge_builder('managedby', mapped_type, member.split('=', 1)[-1], name))
-                    elif attribute == 'mepManagedBy':
-                        edges.append(self.edge_builder('managedby', mapped_type, member.split('=', 1)[-1], name))
+                    if attribute == 'memberManager'.lower():
+                        edges.append(self.edge_builder('membermanager', mapped_type, member.split('=', 1)[-1], name))
             elif attribute.startswith('member'):
-                for member in entry['attributes'][attribute]:
+                for member in entry_lower['attributes'][attribute]:
                     member = member[:-len(self.base_dn)-1]
                     member, path = member.split(',', 1)
                     mapped_type = member_mapper[path]
                     edges.append(self.edge_builder(attribute.lower(), mapped_type, member.split('=', 1)[-1], name))
             else:
-                if len(entry['attributes'][attribute]) == 1:
-                    properties[attribute.lower()] = entry['attributes'][attribute][0]
+                if len(entry_lower['attributes'][attribute]) == 1:
+                    properties[attribute.lower()] = entry_lower['attributes'][attribute][0]
                 else:
-                    properties[attribute.lower()] = entry['attributes'][attribute]
-                if isinstance(entry['attributes'][attribute], dict) and 'encoding' in entry['attributes'][attribute].keys():
-                    properties[attribute.lower()] = entry['attributes']['encoded']
+                    properties[attribute.lower()] = entry_lower['attributes'][attribute]
+                if isinstance(entry_lower['attributes'][attribute], dict) and 'encoding' in entry_lower['attributes'][attribute].keys():
+                    properties[attribute.lower()] = entry_lower['attributes']['encoded']
+                if isinstance(properties[attribute.lower()], dict):
+                    properties[attribute.lower()] = [f'{key}: {value}' for key, value in properties[attribute.lower()].items()]
         return properties, edges
 
 
     def edge_builder(self, relation_type, target_type, target, source_name):
-        ipa_type_mapper = {'user': 'IPAUser', 'group': 'IPAUserGroup', 'privilege': 'IPAPrivilege', 'permission': 'IPApermission', 'sudorule': 'IPASudoRule', 'role': 'IPARole', 'hostgroup': 'IPAHostGroup', 'netgroup': 'IPANetGroup', 'hbacrule': 'IPAHBACRule', 'host': 'IPAHost', 'sysaccounts':'IPASysAccount', 'service': 'IPAService', 'sudocmd': 'IPASudo', 'sudocmdgroup': 'IPASudoGroup', 'hbacservices': 'IPAHBACService', 'hbacservicegroups': 'IPAHBACServiceGroup', 'hbacsvc': 'IPAHBACService', 'hbacsvcgroup': 'IPAHBACServiceGroup'}
+        ipa_type_mapper = {'user': 'IPAUser', 'group': 'IPAUserGroup', 'privilege': 'IPAPrivilege', 'permission': 'IPAPermission', 'sudorule': 'IPASudoRule', 'role': 'IPARole', 'hostgroup': 'IPAHostGroup', 'netgroup': 'IPANetGroup', 'hbacrule': 'IPAHBACRule', 'host': 'IPAHost', 'sysaccounts':'IPASysAccount', 'service': 'IPAService', 'sudocmd': 'IPASudo', 'sudocmdgroup': 'IPASudoGroup', 'hbacservices': 'IPAHBACService', 'hbacservicegroups': 'IPAHBACServiceGroup', 'hbacsvc': 'IPAHBACService', 'hbacsvcgroup': 'IPAHBACServiceGroup', 'subids': 'IPASubId', 'subid': 'IPASubId'}
         acl_type_mapper = {'sudorule': 'IPASudoRuleTo', 'hbacrule': 'IPAHBACRuleTo', 'permission': 'IPAMemberOf', 'privilege': 'IPAMemberOf'}
 
         if self.ipa_type in acl_type_mapper:
-            edge = {'source': {'type': ipa_type_mapper[target_type], 'uid': target}, 'target': {'type': ipa_type_mapper[self.ipa_type], 'uid': source_name}, 'edge': {'type': acl_type_mapper[self.ipa_type], "properties": {"isacl": True}}}
+            edge = {'source': {'type': ipa_type_mapper[target_type], 'uid': target}, 'target': {'type': ipa_type_mapper[self.ipa_type], 'uid': source_name}, 'edge': {'type': "IPAMemberOf" if ipa_type_mapper[target_type] in ["IPASudo", "IPASudoGroup", "IPAHBACService", "IPAHBACServiceGroup"] else acl_type_mapper[self.ipa_type], "properties": {"isacl": True}}}
             if 'deny' in relation_type or 'allow' in relation_type:
                 edge['edge']['properties']['allow'] = 'allow' in relation_type
         elif target_type in acl_type_mapper:
-            edge = {'source': {'type': ipa_type_mapper[self.ipa_type], 'uid': source_name}, 'target': {'type': ipa_type_mapper[target_type], 'uid': target}, 'edge': {'type': acl_type_mapper[target_type], "properties": {"isacl": True}}}
+            edge = {'source': {'type': ipa_type_mapper[self.ipa_type], 'uid': source_name}, 'target': {'type': ipa_type_mapper[target_type], 'uid': target}, 'edge': {'type': "IPAMemberOf" if ipa_type_mapper[self.ipa_type] in ["IPASudo", "IPASudoGroup", "IPAHBACService", "IPAHBACServiceGroup"] else acl_type_mapper[target_type], "properties": {"isacl": True}}}
         elif relation_type == 'managedby':
-            edge = {'source': {'type': ipa_type_mapper[self.ipa_type], 'uid': source_name}, 'target': {'type': ipa_type_mapper[target_type], 'uid': target}, 'edge': {'type': 'IPAMemberManager', "properties": {"isacl": True}}}
+            edge = {'source': {'type': ipa_type_mapper[target_type], 'uid': target}, 'target': {'type': ipa_type_mapper[self.ipa_type], 'uid': source_name}, 'edge': {'type': 'IPAManagedBy', "properties": {"isacl": True}}}
         elif relation_type == 'managing':
-            edge = {'source': {'type': ipa_type_mapper[target_type], 'uid': target}, 'target': {'type': ipa_type_mapper[self.ipa_type], 'uid': source_name}, 'edge': {'type': 'IPAMemberManager', "properties": {"isacl": True}}}
+            edge = {'source': {'type': ipa_type_mapper[self.ipa_type], 'uid': source_name}, 'target': {'type': ipa_type_mapper[target_type], 'uid': target}, 'edge': {'type': 'IPAManagedBy', "properties": {"isacl": True}}}
+        elif relation_type == 'membermanager':
+            edge = {'source': {'type': ipa_type_mapper[target_type], 'uid': target},
+                    'target': {'type': ipa_type_mapper[self.ipa_type], 'uid': source_name},
+                    'edge': {'type': 'IPAMemberManager', "properties": {"isacl": True}}}
         else:
             if relation_type == 'memberof':
                 edge = {'source': {'type': ipa_type_mapper[self.ipa_type], 'uid': source_name}, 'target': {'type': ipa_type_mapper[target_type], 'uid': target}, 'edge': {'type': 'IPAMemberOf', "properties": {"isacl": False}}}
@@ -156,11 +158,10 @@ class IPAobjectCollector(object):
                 edge = {'source': {'type': ipa_type_mapper[target_type], 'uid': target}, 'target': {'type': ipa_type_mapper[self.ipa_type], 'uid': source_name}, 'edge': {'type': 'IPAMemberOf', "properties": {"isacl": False}}}
         return edge
 
-
-    def create_json(self, timestamp):
-        with open(f'{timestamp}_ipa_{self.ipa_type}s.json', 'w') as f:
-            f.write(json.dumps(self.ipa_objects))
-        self.logger.info(f'\tsaved {self.ipa_type}s to file {timestamp}_ipa_{self.ipa_type}s.json')
+    def create_json(self, file_name: str):
+        with open(file_name, 'w') as f:
+            f.write(json.dumps(self.ipa_objects, indent=2))
+        self.logger.info(f'\tsaved {self.ipa_type}s to file {file_name}')
 
 
     def parse_user_rights(self, uid):
