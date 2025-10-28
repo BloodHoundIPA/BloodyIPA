@@ -95,7 +95,7 @@ class IPAobjectCollector(object):
 
 
     def ldap_parse_entries(self, entry):
-        member_mapper = {'cn=permissions,cn=pbac': 'permission', 'cn=groups,cn=accounts':'group', 'cn=hostgroups,cn=accounts':'hostgroup', 'cn=ng,cn=alt':'netgroup', 'cn=roles,cn=accounts': 'role', 'cn=sudorules,cn=sudo': 'sudorule', 'cn=sudocmds,cn=sudo': 'sudocmd', 'cn=sudocmdgroups,cn=sudo': 'sudocmdgroup', 'cn=hbac': 'hbacrule', 'cn=privileges,cn=pbac': 'privilege', 'cn=computers,cn=accounts': 'host', 'cn=users,cn=accounts': 'user', 'cn=services,cn=accounts': 'service', 'cn=trusts': 'trust', 'cn=sysaccounts,cn=etc': 'sysaccounts', 'cn=hbacservices,cn=hbac': 'hbacservices', 'cn=hbacservicegroups,cn=hbac': 'hbacservicegroups', 'cn=subids,cn=accounts': 'subids'}
+        member_mapper = {'cn=permissions,cn=pbac': 'permission', 'cn=groups,cn=accounts':'group', 'cn=hostgroups,cn=accounts':'hostgroup', 'cn=ng,cn=alt':'netgroup', 'cn=roles,cn=accounts': 'role', 'cn=sudorules,cn=sudo': 'sudorule', 'cn=sudocmds,cn=sudo': 'sudocmd', 'cn=sudocmdgroups,cn=sudo': 'sudocmdgroup', 'cn=hbac': 'hbacrule', 'cn=privileges,cn=pbac': 'privilege', 'cn=computers,cn=accounts': 'host', 'cn=users,cn=accounts': 'user', 'cn=services,cn=accounts': 'service', 'cn=trusts': 'trust', 'cn=ad,cn=trusts': 'trust', 'cn=sysaccounts,cn=etc': 'sysaccounts', 'cn=hbacservices,cn=hbac': 'hbacservices', 'cn=hbacservicegroups,cn=hbac': 'hbacservicegroups', 'cn=subids,cn=accounts': 'subids'}
         edges = []
         properties = {}
         entry_lower = {'attributes': dict()}
